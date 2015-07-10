@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "个人设置";
+}
+<style>
+    /*子元素纵向排列*/
+    .verticalbox {
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        display: flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -moz-box;
+        width: auto;
+        height: auto;
+    }
+    /*子元素横向排列*/
+    .horizontalbox {
+        box-lines: single;
+        -ms-box-lines: single;
+        -webkit-box-lines: single;
+        display: -ms-flexbox;
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        display: -moz-box;
+    }
+    /*元素填充剩余空间*/
+    .dockbody {
+        position: relative;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        -moz-box-flex: 1;
+    }
+    /**/
+    .dockinner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .innerhtml {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    /*子元素水平垂直居中*/
+    .centerbox {
+        display: flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .container-fluid > .row article > .row {
+        padding: 10px;
+        border-bottom: 1px solid #808080;
+    }
+
+        .container-fluid > .row article > .row a {
+            color: black;
+        }
+</style>
+<div class="container-fluid" style="padding-top: 12px;">
+    <div class="row" style="background-color: #fff;">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+                <div class="col-xs-2"><i class="fa fa-credit-card"></i></div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <a class="col-xs-10" href="@Url.Action("Index","Bank")">我的银行卡</a>
+                        <i class="col-xs-2 fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2"><i class="fa fa-usd"></i></div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <a class="col-xs-10" href="#">充值</a>
+                        <i class="col-xs-2 fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2"><i class="fa fa-money"></i></div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <a class="col-xs-10" href="#">提现</a>
+                        <i class="col-xs-2 fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div style="height:10px"></div>
+    <div class="row" style="background-color: #fff;">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+                <div class="col-xs-2"><i class="fa fa-map-marker"></i></div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <a class="col-xs-10" href="@Url.Action("Index","Address")">我的地址</a>
+                        <i class="col-xs-2 fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2"><i class="fa fa-lock"></i></div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <a class="col-xs-10" href="#">修改密码</a>
+                        <i class="col-xs-2 fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div style="height:10px"></div>
+    <div class="row" style="background-color: #fff;">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+                <div class="col-xs-2"><i class="fa fa-comments"></i></div>
+                <div class="col-xs-10">
+                    <div class="row">
+                        <a class="col-xs-10" href="#">关于我们</a>
+                        <i class="col-xs-2 fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div style="height:10px"></div>
+    <div class="row">
+        <div style="padding:10px">
+            <a href="@Url.Action("Logout", "Account")" class="logout btn btn-lg btn-block" title="欢迎您">退出当前账号</a>
+        </div>
+        
+    </div>
+</div>

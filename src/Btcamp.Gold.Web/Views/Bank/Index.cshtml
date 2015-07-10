@@ -1,0 +1,80 @@
+﻿@model AccountViewModel
+@{
+    ViewBag.Title = "我的银行卡";
+}
+
+<div class="container-fluid" style="padding-top: 12px;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+
+                <div style="border-top:1px solid #CCCCCC">
+                    <div class="widget-body">
+                        <form class="form-horizontal" action="@Url.Action("Register")" method="post" enctype="multipart/form-data">
+                            <fieldset>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.Name, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            @Html.TextBoxFor(e => e.Name, new { @class = "form-control input-lg", disabled = "disabled", maxlength = "11" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.IDNumber, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                            @Html.TextBoxFor(e => e.IDNumber, new { @class = "form-control input-lg", disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.Bank, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa  fa-bank"></i></span>
+                                            @Html.TextBoxFor(e => e.Bank, new { @class = "form-control input-lg", disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.BankBranch, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa  fa-bank"></i></span>
+                                            @Html.TextBoxFor(e => e.BankBranch, new { @class = "form-control input-lg", disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.BankNumber, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa  fa-bank"></i></span>
+                                            @Html.TextBoxFor(e => e.BankNumber, new { @class = "form-control input-lg", disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-2 col-md-10  col-xs-12">
+                                            @*<button class="btn btn-default btn-lg" type="reset">
+                                                    取消
+                                                </button>*@
+                                            <a class="btn btn-lg btn-block" href="@Url.Action("Modify")">
+                                                修改银行卡信息
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

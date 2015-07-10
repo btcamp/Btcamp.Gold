@@ -1,0 +1,66 @@
+﻿@model Btcamp.Gold.Web.Models.AccountViewModel
+
+@{
+    ViewBag.Title = "加入我们";
+}
+
+<div class="container-fluid" style="padding-top: 12px;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+
+                <div style="border-top:1px solid #CCCCCC">
+                    <div class="widget-body">
+                        <form class="form-horizontal" action="@Url.Action("Register")" method="post" enctype="multipart/form-data">
+                            <fieldset>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.PhoneNumber, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            @Html.TextBoxFor(e => e.PhoneNumber, new { @class = "form-control input-lg", placeholder = "请输入手机号", maxlength = "11" })
+                                        </div>
+                                        @Html.ValidationMessageFor(e => e.PhoneNumber)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.LoginPwd, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            @Html.PasswordFor(e => e.LoginPwd, new { @class = "form-control input-lg", placeholder = "请输入登陆密码" })
+                                        </div>
+                                        @Html.ValidationMessageFor(e => e.LoginPwd)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.ConfirmPwd, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            @Html.PasswordFor(e => e.ConfirmPwd, new { @class = "form-control input-lg", placeholder = "请输入登陆密码" })
+                                        </div>
+                                        @Html.ValidationMessageFor(e => e.ConfirmPwd)
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-2 col-md-10  col-xs-12">
+                                            @*<button class="btn btn-default btn-lg" type="reset">
+                                                    取消
+                                                </button>*@
+                                            <button class="btn btn-lg btn-block" type="submit">
+                                                马上注册
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

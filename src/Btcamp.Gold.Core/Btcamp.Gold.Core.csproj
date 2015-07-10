@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A90FB5A1-A21A-4ED7-AC60-B23ECA41DBDC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Btcamp.Gold.Core</RootNamespace>
+    <AssemblyName>Btcamp.Gold.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ApplicationCommon.cs" />
+    <Compile Include="Entitys\Account.cs" />
+    <Compile Include="Entitys\Address.cs" />
+    <Compile Include="Entitys\BaseEntity.cs" />
+    <Compile Include="Entitys\ClosingPrice.cs" />
+    <Compile Include="Entitys\Deposit.cs" />
+    <Compile Include="Entitys\UserInfo.cs" />
+    <Compile Include="Entitys\Withdrawals.cs" />
+    <Compile Include="Extensions\CommonExtensions.cs" />
+    <Compile Include="Infrastructure\DataContext.cs" />
+    <Compile Include="Infrastructure\DbContextFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\Interface\IRepository.cs" />
+    <Compile Include="Infrastructure\Interface\IService.cs" />
+    <Compile Include="Infrastructure\Interface\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\Page.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\ServiceBase.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\TradeSellModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AccountRepository.cs" />
+    <Compile Include="Repository\AddressRepository.cs" />
+    <Compile Include="Repository\ClosingPriceRepository.cs" />
+    <Compile Include="Repository\UserInfoRepository.cs" />
+    <Compile Include="Service References\MT4\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\AddressService.cs" />
+    <Compile Include="Services\ClosingPriceService.cs" />
+    <Compile Include="Services\Interface\IAccountService.cs" />
+    <Compile Include="Services\Interface\IAddressService.cs" />
+    <Compile Include="Services\Interface\IClosingPriceService.cs" />
+    <Compile Include="Services\Interface\IMT4Service.cs" />
+    <Compile Include="Services\Interface\IUserInfoService.cs" />
+    <Compile Include="Services\MT4Service.cs" />
+    <Compile Include="Services\UserInfoService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.MarginLevelSE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.MT4HistoryStats.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.MT4OperResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.SymbolInfoSE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.TradeCloseResponseModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.TradeModifyResponseModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.TradeOpenRsponseModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.TradeRecordSE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\Btcamp.Gold.Core.MT4.UserRecordSE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MT4\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MT4\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MT4\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MT4\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MT4\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MT4\PumpService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MT4\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MT4\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MT4\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MT4\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MT4\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
