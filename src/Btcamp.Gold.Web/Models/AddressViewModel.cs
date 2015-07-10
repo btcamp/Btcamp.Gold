@@ -27,5 +27,7 @@ namespace Btcamp.Gold.Web.Models
         [Display(Name = "详细收货地址")]
         [Required(ErrorMessage = "请输入详细收货地址")]
         public string DetailAddress { get; set; }
+
+        public string AccountId { get; set; }
     }
 }

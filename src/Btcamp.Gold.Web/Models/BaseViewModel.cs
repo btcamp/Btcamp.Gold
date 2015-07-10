@@ -7,6 +7,10 @@ namespace Btcamp.Gold.Web.Models
 {
     public class BaseViewModel
     {
+        public BaseViewModel()
+        {
+            UpdateTime = DateTime.Now;
+        }
         public Guid Id { get; set; }
 
         public DateTime UpdateTime { get; set; }

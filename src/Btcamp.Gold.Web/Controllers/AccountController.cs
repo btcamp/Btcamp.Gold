@@ -10,6 +10,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Threading.Tasks;
+using Btcamp.Gold.Core.Models;
 
 namespace Btcamp.Gold.Web.Controllers
 {
@@ -17,9 +19,11 @@ namespace Btcamp.Gold.Web.Controllers
     {
         private readonly IUnitOfWork _unitOfWork = null;
         private readonly IAccountService _accountService = null;
-        public AccountController(IUnitOfWork unitOfWork, IAccountService accountService)
+        private readonly IMT4Service _mt4Service = null;
+        public AccountController(IUnitOfWork unitOfWork, IAccountService accountService, IMT4Service mt4service)
         {
             this._accountService = accountService;
+            this._mt4Service = mt4service;
             this._unitOfWork = unitOfWork;
         }
         // GET: Account
@@ -100,6 +104,58 @@ namespace Btcamp.Gold.Web.Controllers
         public ActionResult Withdrawal()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Withdrawal(WithdrawalsViewModel model)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            AccountChangePasswordViewModel model = new AccountChangePasswordViewModel();
+            model.AccountId = LoginAccount.Id;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(AccountChangePasswordViewModel model)
+        {
+            ResponseModel response = new ResponseModel();
+            if (!ModelState.IsValid)
+            {
+                response.Msg = ModelState.Keys.FirstOrDefault();
+            }
+            else
+            {
+                Account account = _accountService.GetById(model.AccountId);
+                if (!account.LoginPwd.Equals(model.OldPwd.ToMd5String()))
+                {
+                    response.Msg = "旧密码与现在使用密码不一致！如需修改密码请联系客户";
+
+                }
+                else
+                {
+                    account.LoginPwd = model.NewPwd.ToMd5String();
+                    _accountService.Update(account);
+                    _unitOfWork.Commit();
+                    response.Success = true;
+                    response.Msg = "成功修改密码，请重新登录";
+                    FormsAuthentication.SignOut();
+                }
+            }
+            return Json(response);
+        }
+
+        public async Task<ActionResult> Tradelogs()
+        {
+            if (!string.IsNullOrEmpty(LoginAccount.MT4Account))
+            {
+                List<TradingModel> logs = await _mt4Service.GetTradeLogs(LoginAccount.MT4Account);
+                List<TradingViewModel> trades = Mapper.Map<List<TradingViewModel>>(logs);
+            }
         }
     }
 }

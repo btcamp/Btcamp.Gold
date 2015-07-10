@@ -1,0 +1,76 @@
+﻿@model AddressViewModel
+@{
+    ViewBag.Title = "新增收货人";
+}
+
+<div class="container-fluid" style="padding-top: 12px;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+
+                <div style="border-top:1px solid #CCCCCC">
+                    <div class="widget-body">
+                        <form class="form-horizontal" action="@Url.Action("Add")" method="post" enctype="multipart/form-data">
+                            <fieldset>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.Name, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            @Html.TextBoxFor(e => e.Name, new { @class = "form-control input-lg", placeholder = "请输入收货姓名" })
+                                        </div>
+                                        @Html.ValidationMessageFor(e => e.Name)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.PhoneNumber, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            @Html.TextBoxFor(e => e.PhoneNumber, new { @class = "form-control input-lg", placeholder = "请输入联系人电话", type = "number" })
+                                        </div>
+                                        @Html.ValidationMessageFor(e => e.PhoneNumber)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.ZipCode, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                            @Html.TextBoxFor(e => e.ZipCode, new { @class = "form-control input-lg", placeholder = "请输入邮编", type = "number" })
+                                        </div>
+                                        @Html.ValidationMessageFor(e => e.ZipCode)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(e => e.DetailAddress, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                            @Html.TextBoxFor(e => e.DetailAddress, new { @class = "form-control input-lg", placeholder = "请输入详细收货地址" })
+                                        </div>
+                                        @Html.ValidationMessageFor(e => e.DetailAddress)
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-2 col-md-10  col-xs-12">
+                                            @*<button class="btn btn-default btn-lg" type="reset">
+                                                    取消
+                                                </button>*@
+                                            @Html.HiddenFor(e => e.Id)
+                                            <button class="btn btn-lg btn-block" type="submit">
+                                                保存
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

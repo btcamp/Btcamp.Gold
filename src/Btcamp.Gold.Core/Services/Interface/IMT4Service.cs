@@ -22,5 +22,7 @@ namespace Btcamp.Gold.Core.Services.Interface
         /// <param name="ids"></param>
         /// <returns></returns>
         Task<bool> Sell(List<int> ids);
+
+        Task<List<Models.TradingModel>> GetTradeLogs(string loginId);
     }
 }

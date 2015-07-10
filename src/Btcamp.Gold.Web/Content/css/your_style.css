@@ -1,4 +1,4 @@
-﻿/*
+/*
  * It is advised not to edit the smartadmin_production.css
  * as this will override any changes you make in the 
  * later versions of this theme. 
@@ -60,13 +60,6 @@
 .margin-right-15 {
   margin-right: 15px !important;
 }
-/*.smart-form {
-    .input {
-        input {
-            padding: 4px 10px !important;
-        }
-    }
-}*/
 /* SmartForm Bootstrap Validation */
 #extr-page h4.paragraph-header {
   width: auto;

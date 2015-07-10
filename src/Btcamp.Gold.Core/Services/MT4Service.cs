@@ -116,5 +116,18 @@ namespace Btcamp.Gold.Core.Services
             }
             return true;
         }
+
+
+        public async Task<List<Models.TradingModel>> GetTradeLogs(string loginId)
+        {
+            TradeRecordSE[] tradelogs = await Instance.GetTradesRecordHistoryAsync(int.Parse(loginId), DateTime.Now.AddYears(-10), DateTime.Now.AddDays(1));
+            List<Models.TradingModel> list = new List<Models.TradingModel>();
+            foreach (TradeRecordSE item in tradelogs)
+            {
+                decimal price = await GetGoldPrice(item.OpenPrice);
+                list.Add(new Models.TradingModel(item.OrderId, item.OpenTime, price, ((item.Volume / 100) * 0.5), item.Profit));
+            }
+            return list;
+        }
     }
 }
