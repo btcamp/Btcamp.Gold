@@ -11,6 +11,7 @@ namespace Btcamp.Gold.Web.Controllers
         // GET: Test
         public ActionResult Index()
         {
+            ViewBag.msg = "";
             return View();
         }
     }
