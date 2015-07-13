@@ -4,14 +4,16 @@
             <span id="logo"> <img src="~/content/img/logo.png" alt="SmartAdmin"> </span>
         </div>*@
     <div class="row" style="width:100%">
-        <div class="col-xs-3"></div>
-        <div class="col-xs-6" style="padding:0px;margin:0 auto;line-height:49px;font-size:20px;font-weight:bold;text-align:center;color:#fff">
+        <div class="col-xs-3">
+            @Html.Partial("_TopRight")
+        </div>
+        <div class="col-xs-7" style="padding:0px;margin:0 auto;line-height:49px;font-size:20px;font-weight:bold;text-align:center;color:#fff">
             <span id="price">0.00</span> 美元/克
         </div>
-        <section class="col-xs-3" id="top-right" style="padding:0px">
-            <div class="pull-right">
-                @Html.Partial("_TopRight")
-            </div>
+        <section class="col-xs-2" id="top-right" style="padding:0px">
+            @*<div class="pull-right">
+                
+            </div>*@
         </section>
     </div>
 </header>

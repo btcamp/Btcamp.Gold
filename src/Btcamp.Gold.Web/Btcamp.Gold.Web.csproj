@@ -925,6 +925,8 @@
     <Content Include="Views\Address\Add.cshtml" />
     <Content Include="Views\Address\Modify.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\Tradelogs.cshtml" />
+    <Content Include="Views\Home\SumInterest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

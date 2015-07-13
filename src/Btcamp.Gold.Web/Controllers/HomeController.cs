@@ -113,8 +113,10 @@ namespace Btcamp.Gold.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult SaveKing()
+        public ActionResult SumInterest()
         {
+            var account = _accountService.GetById(LoginAccount.Id);
+            ViewBag.Data = account.SumInterest.ToString("f2");
             return View();
         }
     }

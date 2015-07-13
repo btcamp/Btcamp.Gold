@@ -1,27 +1,7 @@
 ﻿@{
     ViewBag.Title = "黄金罗盘";
 }
-<style>
-    .backgroundcolor {
-        background-color: #E62629;
-    }
 
-    .fontcolor {
-        color: #E62629;
-    }
-
-
-    .backgroundcolor a {
-        color: white;
-    }
-
-        .backgroundcolor a:hover {
-            color: white;
-            text-decoration: underline;
-            -moz-text-decoration-line: underline;
-            text-decoration-line: underline;
-        }
-</style>
 
 <div class="container-fluid" style="font-weight:bold">
     <div class="row backgroundcolor" style="min-height:200px;color:white">
@@ -33,7 +13,7 @@
                     昨日利息（元）
                 </div>
                 <div style="font-size:3.5em;min-height:150px;text-align:center;">
-                    @ViewBag.Interest
+                    <a href="@Url.Action("suminterest")">@ViewBag.Interest</a>
                 </div>
             }
             else
@@ -53,7 +33,7 @@
                 string text = "0.00";
                 if (Request.IsAuthenticated)
                 {
-                    <a href="@Url.Action("Sell")" class="btn-block fontcolor">@text</a>
+                    <a href="@Url.Action("Sell")" id="extGold" class="btn-block fontcolor">@text</a>
                 }
                 else
                 {
@@ -95,7 +75,7 @@
             $(function () {
                 setInterval(function () {
                     $.get("@Url.Action("GetGold")", function (result) {
-                        $scope.text = result.Profit;
+                        $("#extGold").text(result.Profit);
                     });
                 }, 1000);
             });

@@ -1,0 +1,93 @@
+﻿@model List<TradingViewModel>
+
+@{
+    ViewBag.Title = "卖出";
+}
+<link href="~/Content/css/fiexdtoolstyle.css" rel="stylesheet" />
+<div class="container-fluid" id="content">
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <div class="jarviswidget" id="wid-id-0" data-widget-togglebutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>交易黄金</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>交易时间</th>
+                                            <th>单价(元/克)</th>
+                                            <th>金重(克)</th>
+                                            <th>盈利</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            if (Model != null)
+                                            {
+                                                foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <input type="hidden" value="@item.OrderID" />
+                                                            @item.TradeTime
+                                                        </td>
+                                                        <td>@item.Price.ToString("f2")</td>
+                                                        <td>@item.Weight.ToString("f2")</td>
+                                                        <td>@item.Profit.ToString("f2")</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+    @*<div class="fiexdtool">
+        <div class="row">
+            <button id="btnSell" class="btn btn-block btn-lg">卖出</button>
+        </div>
+    </div>*@
+</div>
+
+@section pagespecific{
+    @*<script>
+        $(function () {
+            $(".table tbody tr").click(function () {
+                if ($(this).hasClass("success")) {
+                    $(this).removeClass("success");
+                } else {
+                    $(this).addClass("success");
+                }
+            });
+            $("#btnSell").click(function () {
+                if ($(".table tbody .success").length <= 0) {
+                    finAlert("请选择要卖出的黄金", false);
+                } else {
+                    var selectItems = [];
+                    $(".table tbody .success td:first input[type='hidden']").each(function (index, ele) {
+                        selectItems.push($(ele).val());
+                    });
+                    modalLoading("正在出售中...");
+                    $.post("@Url.Action("Sell")", { list: selectItems }, function (result) {
+                        bootbox.hideAll();
+                        finAlert(result.Msg, result.Success);
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1000);
+                    });
+                }
+            });
+        });
+    </script>*@
+}
+

@@ -124,6 +124,10 @@ namespace Btcamp.Gold.Core.Services
             List<Models.TradingModel> list = new List<Models.TradingModel>();
             foreach (TradeRecordSE item in tradelogs)
             {
+                if (item.Cmd == 6)
+                {
+                    continue;
+                }
                 decimal price = await GetGoldPrice(item.OpenPrice);
                 list.Add(new Models.TradingModel(item.OrderId, item.OpenTime, price, ((item.Volume / 100) * 0.5), item.Profit));
             }

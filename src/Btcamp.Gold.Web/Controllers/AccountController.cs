@@ -155,7 +155,9 @@ namespace Btcamp.Gold.Web.Controllers
             {
                 List<TradingModel> logs = await _mt4Service.GetTradeLogs(LoginAccount.MT4Account);
                 List<TradingViewModel> trades = Mapper.Map<List<TradingViewModel>>(logs);
+                return View(trades);
             }
+            return View(new List<TradingViewModel>());
         }
     }
 }
