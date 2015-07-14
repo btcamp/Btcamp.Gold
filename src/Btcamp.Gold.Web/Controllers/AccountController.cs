@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Threading.Tasks;
 using Btcamp.Gold.Core.Models;
+using Btcamp.Gold.Core.EventHandler;
 
 namespace Btcamp.Gold.Web.Controllers
 {
@@ -86,6 +87,7 @@ namespace Btcamp.Gold.Web.Controllers
             _unitOfWork.Commit();
             response.Success = true;
             response.Msg = "欢迎您，已经成功加入我们";
+            CustomRaiseEvent.RaiseAccountRegister(account);//触发用户注册事件
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 

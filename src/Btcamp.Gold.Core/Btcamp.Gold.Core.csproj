@@ -63,6 +63,7 @@
     <Compile Include="Entitys\Deposit.cs" />
     <Compile Include="Entitys\UserInfo.cs" />
     <Compile Include="Entitys\Withdrawals.cs" />
+    <Compile Include="EventHandler\CustomRaiseEvent.cs" />
     <Compile Include="Extensions\CommonExtensions.cs" />
     <Compile Include="Infrastructure\DataContext.cs" />
     <Compile Include="Infrastructure\DbContextFactory.cs" />
@@ -165,6 +166,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

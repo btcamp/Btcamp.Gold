@@ -8,26 +8,26 @@ namespace Btcamp.Gold.Web.Models
 {
     public class AddressViewModel : BaseViewModel
     {
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "收货人姓名最长为32位有效长度")]
         [Display(Name = "收货人姓名")]
         [Required(ErrorMessage = "请输入收货人姓名")]
         public string Name { get; set; }
 
-        [StringLength(11)]
+        [StringLength(11, ErrorMessage = "联系电话最长为11位有效长度")]
         [Display(Name = "联系电话")]
         [Required(ErrorMessage = "请输入联系电话")]
         public string PhoneNumber { get; set; }
 
-        [StringLength(6)]
+        [StringLength(6, ErrorMessage = "邮编最长为6位有效长度")]
         [Display(Name = "邮编")]
         [Required(ErrorMessage = "请输入邮编")]
         public string ZipCode { get; set; }
 
-        [StringLength(128)]
+        [StringLength(128, ErrorMessage = "详细收货地址最长为128位有效长度")]
         [Display(Name = "详细收货地址")]
         [Required(ErrorMessage = "请输入详细收货地址")]
         public string DetailAddress { get; set; }
 
-        public string AccountId { get; set; }
+        public Guid AccountId { get; set; }
     }
 }

@@ -9,8 +9,10 @@ namespace Btcamp.Gold.Web.Models
     {
         public BaseViewModel()
         {
+            Id = Guid.NewGuid();
             UpdateTime = DateTime.Now;
         }
+
         public Guid Id { get; set; }
 
         public DateTime UpdateTime { get; set; }

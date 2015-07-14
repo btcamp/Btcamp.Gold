@@ -30,6 +30,7 @@ namespace Btcamp.Gold.Web
 
             AutoGetClosingPriceConfig.Start();
 
+            CustomRaiseEventConfig.ReisgerEvent();
         }
     }
 }

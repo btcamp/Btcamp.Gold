@@ -25,7 +25,7 @@ namespace Btcamp.Gold.Web.Controllers
         // GET: Address
         public ActionResult Index()
         {
-            List<Address> address = _addressService.GetMany(a => a.AccountId == LoginAccount.Id).ToList();
+            List<Address> address = _addressService.GetMany(a => a.AccountId == LoginAccount.Id).OrderByDescending(a => a.UpdateTime).ToList();
             var results = AutoMapper.Mapper.Map<List<AddressViewModel>>(address);
             return View(results);
         }
@@ -40,15 +40,22 @@ namespace Btcamp.Gold.Web.Controllers
         public ActionResult Add(AddressViewModel model)
         {
             ResponseModel response = new ResponseModel();
+            ModelState.Remove("Id");
             if (!ModelState.IsValid)
             {
-                response.Success = false;
-                response.Msg = ModelState.Keys.FirstOrDefault();
+                foreach (var item in ModelState)
+                {
+                    if (item.Value.Errors.Count > 0)
+                    {
+                        response.Success = false;
+                        response.Msg = item.Value.Errors.FirstOrDefault().ErrorMessage;
+                    }
+
+                }
             }
             else
             {
                 Address address = AutoMapper.Mapper.Map<Address>(model);
-                address.Id = Guid.NewGuid();
                 address.AccountId = LoginAccount.Id;//关联主外键
                 _addressService.Add(address);
                 _unitOfWork.Commit();

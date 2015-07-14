@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Btcamp.Gold.Core.MT4;
+using System.Configuration;
 
 namespace Btcamp.Gold.Core.Services
 {
@@ -32,7 +33,7 @@ namespace Btcamp.Gold.Core.Services
             mt4Account.Enable = 1;
             mt4Account.EnableChangePassword = 1;
             mt4Account.Password = mt4Pwd;
-            mt4Account.Group = "1";///TODO测试写死了mt4组
+            mt4Account.Group = ConfigurationManager.AppSettings.Get("mt4:group") ?? "1";
             MT4OperResult result = MT4Service.Instance.NewUser(mt4Account);
             if (result.ErrorCode == -1)
             {

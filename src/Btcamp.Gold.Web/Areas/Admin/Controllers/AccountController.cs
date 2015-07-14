@@ -7,6 +7,7 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,10 +16,12 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
     public class AccountController : BaseController
     {
         IAccountService _accountServie = null;
+        IAddressService _addressService = null;
         IUnitOfWork _unitOfWork = null;
-        public AccountController(IAccountService accountService, IUnitOfWork unitOfWork)
+        public AccountController(IAccountService accountService, IAddressService addressService, IUnitOfWork unitOfWork)
         {
             this._accountServie = accountService;
+            this._addressService = addressService;
             this._unitOfWork = unitOfWork;
         }
         // GET: Admin/Account
@@ -93,6 +96,17 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
             Account account = _accountServie.GetById(Id.Value);
             var model = Mapper.Map<AccountViewModel>(account);
             return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        public Task<ActionResult> Address(Guid? Id)
+        {
+            return Task.Factory.StartNew<ActionResult>(() =>
+            {
+                List<Address> address = _addressService.GetMany(a => a.AccountId == Id).OrderByDescending(a => a.UpdateTime).ToList();
+                List<AddressViewModel> results = Mapper.Map<List<AddressViewModel>>(address);
+                return Json(results, JsonRequestBehavior.AllowGet);
+            });
+
         }
         public override string RedirectUrl
         {
