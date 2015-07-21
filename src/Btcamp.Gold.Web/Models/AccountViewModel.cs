@@ -66,4 +66,10 @@ namespace Btcamp.Gold.Web.Models
         public virtual ICollection<AddressViewModel> Address { get; set; }
         public bool IsLock { get; set; }
     }
+
+    public class AccountLoginStatusModel : BaseViewModel
+    {
+        public string Name { get; set; }
+        public string MT4Account { get; set; }
+    }
 }

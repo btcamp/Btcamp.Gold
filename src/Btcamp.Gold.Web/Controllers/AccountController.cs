@@ -48,10 +48,9 @@ namespace Btcamp.Gold.Web.Controllers
             }
             ResponseModel response = new ResponseModel();
             Account account = _accountService.AccountLoginByPhoneNumber(model.PhoneNumber, model.LoginPwd);
-            AccountViewModel accountviewModel = Mapper.Map<AccountViewModel>(account);
             if (account != null)
             {
-                string result = JsonConvert.SerializeObject(accountviewModel);
+                string result = JsonConvert.SerializeObject(new { Id = account.Id, Name = account.Name, MT4Account = account.MT4Account });
                 FormsAuthentication.SetAuthCookie(result, true);
                 response.Success = true;
                 response.Msg = "登陆成功！";

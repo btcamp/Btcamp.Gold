@@ -11,7 +11,7 @@ namespace Btcamp.Gold.Web.Controllers
 {
     public class BaseController : Controller
     {
-        public AccountViewModel LoginAccount { get; private set; }
+        public AccountLoginStatusModel LoginAccount { get; private set; }
 
         protected override void OnAuthentication(System.Web.Mvc.Filters.AuthenticationContext filterContext)
         {
@@ -24,7 +24,7 @@ namespace Btcamp.Gold.Web.Controllers
                 {
                     if (Request.IsAuthenticated)
                     {
-                        AccountViewModel account = JsonConvert.DeserializeObject<AccountViewModel>(User.Identity.Name);
+                        AccountLoginStatusModel account = JsonConvert.DeserializeObject<AccountLoginStatusModel>(User.Identity.Name);
                         filterContext.HttpContext.Items.Add("currentUser", account);
                         LoginAccount = account;
                     }
@@ -38,7 +38,7 @@ namespace Btcamp.Gold.Web.Controllers
                 if (string.Equals(action, "ValidePhoneNumber", StringComparison.OrdinalIgnoreCase)) { return; }
                 if (Request.IsAuthenticated)
                 {
-                    AccountViewModel account = JsonConvert.DeserializeObject<AccountViewModel>(User.Identity.Name);
+                    AccountLoginStatusModel account = JsonConvert.DeserializeObject<AccountLoginStatusModel>(User.Identity.Name);
                     filterContext.HttpContext.Items.Add("currentUser", account);
                     LoginAccount = account;
                 }

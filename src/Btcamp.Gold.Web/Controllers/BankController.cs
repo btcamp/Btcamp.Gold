@@ -1,4 +1,5 @@
-﻿using Btcamp.Gold.Core.Infrastructure;
+﻿using Btcamp.Gold.Core.Entitys;
+using Btcamp.Gold.Core.Infrastructure;
 using Btcamp.Gold.Core.Services.Interface;
 using Btcamp.Gold.Web.Models;
 using System;
@@ -67,11 +68,12 @@ namespace Btcamp.Gold.Web.Controllers
         public ActionResult Modify()
         {
             BankViewModel model = new BankViewModel();
-            model.Bank = LoginAccount.Bank;
-            model.BankBranch = LoginAccount.BankBranch;
-            model.BankNumber = LoginAccount.BankNumber;
-            model.IDNumber = LoginAccount.IDNumber;
-            model.Name = LoginAccount.Name;
+            Account account = _accountService.GetById(LoginAccount.Id);
+            model.Bank = account.Bank;
+            model.BankBranch = account.BankBranch;
+            model.BankNumber = account.BankNumber;
+            model.IDNumber = account.IDNumber;
+            model.Name = account.Name;
             return View(model);
         }
 
