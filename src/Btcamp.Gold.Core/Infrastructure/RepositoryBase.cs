@@ -119,7 +119,21 @@ namespace Btcamp.Gold.Core.Infrastructure
             var count = dbSet.AsNoTracking().Count(where);
             return new StaticPagedList<T>(result, page.PageIndex, page.PageSize, count);
         }
+        public IPagedList<T> GetPageAsNoTracking<TOrder>(Page page, Expression<Func<T, bool>> where,
+            Expression<Func<T, TOrder>> order, bool isDesc)
+        {
+            if (isDesc)
+            {
+                var result = dbSet.AsNoTracking().Where(where).OrderByDescending(order).GetPage(page);
+                var count = dbSet.AsNoTracking().Count(where);
+                return new StaticPagedList<T>(result, page.PageIndex, page.PageSize, count);
+            }
+            else
+            {
+                return GetPageAsNoTracking(page, where, order);
+            }
 
+        }
 
 
     }

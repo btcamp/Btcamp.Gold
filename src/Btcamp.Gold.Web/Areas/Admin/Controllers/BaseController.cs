@@ -14,7 +14,7 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
     public abstract class BaseController : Controller
     {
         log4net.ILog _log = log4net.LogManager.GetLogger("BaseController");
-
+        public UserInfo LoginUser { get; private set; }
 
         protected override void OnAuthentication(AuthenticationContext filterContext)
         {
@@ -27,6 +27,7 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
                 if (Request.IsAuthenticated)
                 {
                     UserInfo user = JsonConvert.DeserializeObject<UserInfo>(User.Identity.Name);
+                    LoginUser = user;
                     filterContext.HttpContext.Items.Add("currentUser", user);
                 }
                 else
@@ -59,13 +60,14 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
                      try
                      {
                          string extension = Path.GetExtension(file.FileName);
-                         imgPath = Path.Combine("/Content/Image/Admin/", Guid.NewGuid().ToString() + extension);
+                         string filename = Guid.NewGuid().ToString() + extension;
+                         imgPath = Path.Combine("/Content/Image/Admin/", filename);
                          string savePath = Server.MapPath("~/Content/Image/Admin/");
                          if (!Directory.Exists(savePath))
                          {
                              Directory.CreateDirectory(savePath);
                          }
-                         path = Path.Combine(savePath, Guid.NewGuid().ToString() + extension);
+                         path = Path.Combine(savePath, filename);
                          file.SaveAs(path);
                      }
                      catch (Exception ex)

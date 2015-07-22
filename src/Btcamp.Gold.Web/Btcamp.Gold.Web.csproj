@@ -807,6 +807,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SystemsettingsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\WelComeController.cs" />
     <Compile Include="Areas\Admin\Models\AccountViewModel.cs" />
@@ -815,6 +816,7 @@
     <Compile Include="Areas\Admin\Models\ChangePasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\DepositViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ResponseModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemSettingsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UserLoginViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UserViewModel.cs" />
     <Compile Include="Areas\Admin\Models\WithdrawalsViewModel.cs" />
@@ -823,7 +825,7 @@
     <Compile Include="Controllers\BankController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\WithdrawalsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -930,6 +932,10 @@
     <Content Include="Views\Account\Tradelogs.cshtml" />
     <Content Include="Views\Home\SumInterest.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Address.cshtml" />
+    <Content Include="Areas\Admin\Views\Systemsettings\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Systemsettings\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Systemsettings\Modify.cshtml" />
+    <Content Include="Views\Withdrawals\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

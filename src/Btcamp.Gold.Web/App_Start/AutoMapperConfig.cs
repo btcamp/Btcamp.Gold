@@ -28,6 +28,9 @@ namespace Btcamp.Gold.Web
             AutoMapper.Mapper.CreateMap<Withdrawals, Admin.WithdrawalsViewModel>();
             AutoMapper.Mapper.CreateMap<Admin.WithdrawalsViewModel, Withdrawals>();
 
+
+            AutoMapper.Mapper.CreateMap<SystemSettings, Admin.SystemSettingsViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.SystemSettingsViewModel, SystemSettings>();
             #endregion
 
             #region Web Model Mapper

@@ -61,6 +61,7 @@
     <Compile Include="Entitys\BaseEntity.cs" />
     <Compile Include="Entitys\ClosingPrice.cs" />
     <Compile Include="Entitys\Deposit.cs" />
+    <Compile Include="Entitys\SystemSettings.cs" />
     <Compile Include="Entitys\UserInfo.cs" />
     <Compile Include="Entitys\Withdrawals.cs" />
     <Compile Include="EventHandler\CustomRaiseEvent.cs" />
@@ -81,7 +82,9 @@
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\AddressRepository.cs" />
     <Compile Include="Repository\ClosingPriceRepository.cs" />
+    <Compile Include="Repository\SystemSettingsRepository.cs" />
     <Compile Include="Repository\UserInfoRepository.cs" />
+    <Compile Include="Repository\WithdrawalsRepository.cs" />
     <Compile Include="Service References\MT4\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,9 +97,13 @@
     <Compile Include="Services\Interface\IAddressService.cs" />
     <Compile Include="Services\Interface\IClosingPriceService.cs" />
     <Compile Include="Services\Interface\IMT4Service.cs" />
+    <Compile Include="Services\Interface\ISystemSettingsService.cs" />
     <Compile Include="Services\Interface\IUserInfoService.cs" />
+    <Compile Include="Services\Interface\IWithdrawalsService.cs" />
     <Compile Include="Services\MT4Service.cs" />
+    <Compile Include="Services\SystemSettingsService.cs" />
     <Compile Include="Services\UserInfoService.cs" />
+    <Compile Include="Services\WithdrawalsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

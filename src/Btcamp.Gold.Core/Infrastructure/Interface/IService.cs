@@ -25,5 +25,6 @@ namespace Btcamp.Gold.Core.Infrastructure
         IEnumerable<T> GetManyAsNoTracking(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAllAsNoTracking();
         IPagedList<T> GetPageAsNoTracking<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order);
+        IPagedList<T> GetPageAsNoTracking<TOrder>(Page page, Expression<Func<T, bool>> where, Expression<Func<T, TOrder>> order, bool isDesc);
     }
 }

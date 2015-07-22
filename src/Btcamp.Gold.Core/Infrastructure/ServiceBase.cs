@@ -91,5 +91,11 @@ namespace Btcamp.Gold.Core.Infrastructure
             return _repositroy.GetPageAsNoTracking<TOrder>(page, where, order);
         }
 
+        public IPagedList<T> GetPageAsNoTracking<TOrder>(Page page, Expression<Func<T, bool>> where,
+            Expression<Func<T, TOrder>> order, bool isDesc)
+        {
+            return _repositroy.GetPageAsNoTracking<TOrder>(page, where, order, isDesc);
+        }
+
     }
 }

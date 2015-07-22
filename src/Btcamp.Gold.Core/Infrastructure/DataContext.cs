@@ -45,5 +45,7 @@ namespace Btcamp.Gold.Core.Infrastructure
 
         public IDbSet<Deposit> Deposit { get; set; }
         public IDbSet<Withdrawals> Withdrawals { get; set; }
+
+        public IDbSet<SystemSettings> SystemSettings { get; set; }
     }
 }

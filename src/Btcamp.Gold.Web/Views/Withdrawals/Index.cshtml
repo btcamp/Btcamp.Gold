@@ -1,0 +1,67 @@
+﻿@model List<WithdrawalsViewModel>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/css/fiexdtoolstyle.css" rel="stylesheet" />
+<style>
+    .container-fluid > .row article > .row {
+        padding: 10px;
+        border-bottom: 1px solid #808080;
+    }
+
+        .container-fluid > .row article > .row a {
+            color: black;
+        }
+
+    .datarow {
+        min-height: 36px;
+    }
+
+    .dataaction {
+        line-height: 36px;
+        text-align: center;
+    }
+</style>
+<div class="container-fluid" style="padding-top: 12px;">
+    <div class="row" style="background-color: #fff;">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            @{
+                if (Model.Count > 0)
+                {
+                    foreach (WithdrawalsViewModel item in Model)
+                    {
+                        <div class="row datarow">
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-7">123456</div>
+                                    <div class="col-xs-5">123456</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">123456</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-danger fade in">
+                        <button class="close" data-dismiss="alert"></button>
+                        <i class="fa-fw fa fa-times"></i>
+                        <strong>您好!</strong>现在暂无收货人地址，请添加
+                    </div>
+                }
+            }
+        </article>
+    </div>
+
+    <div class="fiexdtool">
+        <div class="row">
+            <a href="@Url.Action("Add")" class="btn btn-block btn-lg">新增收货人</a>
+        </div>
+    </div>
+</div>
