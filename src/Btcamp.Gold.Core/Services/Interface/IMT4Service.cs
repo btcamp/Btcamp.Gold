@@ -24,5 +24,7 @@ namespace Btcamp.Gold.Core.Services.Interface
         Task<bool> Sell(List<int> ids);
 
         Task<List<Models.TradingModel>> GetTradeLogs(string loginId);
+
+        Task<bool> ModifyBalance(string loginId, double amount);
     }
 }
