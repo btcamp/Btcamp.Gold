@@ -811,6 +811,7 @@
     <Compile Include="Areas\Admin\Controllers\SystemsettingsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\WelComeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WithdrawalController.cs" />
     <Compile Include="Areas\Admin\Models\AccountViewModel.cs" />
     <Compile Include="Areas\Admin\Models\AddressViewModel.cs" />
     <Compile Include="Areas\Admin\Models\BaseViewModel.cs" />
@@ -938,6 +939,7 @@
     <Content Include="Areas\Admin\Views\Systemsettings\Modify.cshtml" />
     <Content Include="Views\Withdrawals\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Deposit\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Withdrawal\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

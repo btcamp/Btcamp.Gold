@@ -12,33 +12,36 @@ using System.Web.Mvc;
 
 namespace Btcamp.Gold.Web.Areas.Admin.Controllers
 {
-    public class DepositController : BaseController
+    public class WithdrawalController : BaseController
     {
-        private readonly IDepositService depositService = null;
+        private readonly IWithdrawalsService withdrawalService = null;
 
         private readonly IMT4Service mt4Service = null;
 
         private readonly IAccountService accountService = null;
 
         private readonly IUnitOfWork unitOfWork = null;
-
-
-        public DepositController(IUnitOfWork _unitOfWork, IDepositService _depositService, IAccountService _accountService, IMT4Service _mt4Service)
+        public WithdrawalController(
+            IUnitOfWork _unitOfWork,
+            IWithdrawalsService _withdrawalService,
+            IAccountService _accountService,
+            IMT4Service _mt4Service)
         {
-            this.depositService = _depositService;
+            this.withdrawalService = _withdrawalService;
             this.mt4Service = _mt4Service;
             this.accountService = _accountService;
             this.unitOfWork = _unitOfWork;
+
         }
         public override string RedirectUrl
         {
             get { return Request.UrlReferrer == null ? Url.Action("Index") : Request.UrlReferrer.AbsolutePath; }
         }
-        // GET: Admin/Deposit
+        // GET: Admin/Withdrawal
         public ActionResult Index(int pageIndex = 1, int pageSize = 20)
         {
             Page page = new Page(pageIndex, pageSize);
-            IPagedList<Deposit> list = depositService.GetPageAsNoTracking(page, e => true, e => e.UpdateTime, true);
+            IPagedList<Withdrawals> list = withdrawalService.GetPageAsNoTracking(page, e => true, e => e.UpdateTime, true);
             return View(list);
         }
 
@@ -46,20 +49,27 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
         public async Task<ActionResult> Check(Guid? id)
         {
             ResponseModel response = new ResponseModel();
-            Deposit model = depositService.GetById(id.Value);
+            Withdrawals model = withdrawalService.GetById(id.Value);
+            Account account = model.Account;
+            if (model.Amount > account.Amount)
+            {
+                response.Msg = "提现金额已超限!";
+                response.Success = false;
+                return Json(response, JsonRequestBehavior.AllowGet);
+            }
+
             //1.入金mt4金额
             //2.修改account的金额
             //3.修改审核状态
-            bool flg = await mt4Service.ModifyBalance(model.Account.MT4Account, model.Amount);
+            bool flg = await mt4Service.ModifyBalance(model.Account.MT4Account, model.Amount * -1);
             if (flg)
             {
-                Account account = accountService.GetById(model.AccountId);
-                account.Amount += model.Amount;
+                account.Amount -= model.Amount;
                 model.IsAudit = true;
                 accountService.Update(account);
-                depositService.Update(model);
+                withdrawalService.Update(model);
                 unitOfWork.Commit();
-                response.Msg = "成功审核入金申请!";
+                response.Msg = "成功审核提现申请!";
                 response.Success = true;
             }
             else
@@ -69,7 +79,6 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
             }
             return Json(response, JsonRequestBehavior.AllowGet);
         }
-
 
     }
 }

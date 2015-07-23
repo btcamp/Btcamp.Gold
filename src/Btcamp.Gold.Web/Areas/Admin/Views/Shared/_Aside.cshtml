@@ -30,22 +30,16 @@
                     <li class="@Html.RouteIf("index", "Account","active")">
                         <a href="@Url.Action("Index", "Account")">客户管理</a>
                     </li>
-                    <li class="@Html.RouteIf("morris", "active")">
-                        <a href="@Url.Action("morris", "graphs")">Morris Charts</a>
+                    <li class="@Html.RouteIf("index", "Deposit","active")">
+                        <a href="@Url.Action("Index", "Deposit")">入金审核</a>
                     </li>
-                    <li class="@Html.RouteIf("inline", "active")">
-                        <a href="@Url.Action("inline", "graphs")">Inline Charts</a>
-                    </li>
-                    <li class="@Html.RouteIf("dygraphs", "active")">
-                        <a href="@Url.Action("dygraphs", "graphs")">Dygraphs</a>
-                    </li>
-                    <li class="@Html.RouteIf("chartjs", "active")">
-                        <a href="@Url.Action("chartjs", "graphs")">Chart.js <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
+                    <li class="@Html.RouteIf("index", "Withdrawal", "active")">
+                        <a href="@Url.Action("Index", "Withdrawal")">提现审核</a>
                     </li>
                 </ul>
             </li>
             <li class="@Html.RouteIf("index","SystemSettings", "active")">
-                <a href="@Url.Action("index", "SystemSettings")"><i class="fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">系统设置</span></a>
+                <a href="@Url.Action("index", "SystemSettings")"><i class="fa fa-lg fa-fw fa-cog"></i><span class="menu-item-parent">系统设置</span></a>
             </li>
             @*<li class="@Html.RouteIf("graphs", "active")">
                     <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span></a>

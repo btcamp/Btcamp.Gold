@@ -1,8 +1,8 @@
-﻿@model PagedList.IPagedList<Btcamp.Gold.Core.Entitys.Deposit>
+﻿@model PagedList.IPagedList<Btcamp.Gold.Core.Entitys.Withdrawals>
 
 
 @{
-    ViewBag.Title = "入金审核";
+    ViewBag.Title = "提现审核";
 }
 <style>
     .lock {
@@ -21,14 +21,14 @@
 
                     <header>
                         <span class="widget-icon"> <i class="fa fa-money"></i> </span>
-                        <h2>入金审核</h2>
+                        <h2>提现审核</h2>
                     </header>
                     <!-- widget div-->
                     <div>
                         <!-- end widget edit box -->
                         <!-- widget content -->
                         <div class="widget-body no-padding">
-                            <div class="dataTables_wrapper form-inline no-footer table-responsive">
+                            <div class="dataTables_wrapper form-inline no-footer">
                                 <table id="datatable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr style="cursor:pointer">
@@ -37,9 +37,9 @@
                                             </th>
                                             <th>编号</th>
                                             <th>姓名</th>
-                                            <th>出金金额</th>
+                                            <th>提现金额</th>
                                             <th>MT4账号</th>
-                                            <th>入金时间</th>
+                                            <th>提现时间</th>
                                             <th>审核时间</th>
                                             <th>状态</th>
                                             <th>操作</th>
@@ -48,7 +48,7 @@
                                     <tbody>
                                         @{
                                             int index = 1;
-                                            foreach (Btcamp.Gold.Core.Entitys.Deposit item in Model.ToList())
+                                            foreach (Btcamp.Gold.Core.Entitys.Withdrawals item in Model.ToList())
                                             {
                                                 <tr style="cursor:pointer" data-id="@item.Id">
                                                     <td>
