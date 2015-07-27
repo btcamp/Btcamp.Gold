@@ -160,5 +160,54 @@ namespace Btcamp.Gold.Web.Controllers
             }
             return View(new List<TradingViewModel>());
         }
+
+        [HttpGet]
+        public ActionResult ModifyInfo()
+        {
+            
+            Account Information = _accountService.GetById(LoginAccount.Id);
+            AccountInfoViewModel viewModel = new AccountInfoViewModel();
+            viewModel.Amount = Information.Amount;
+            viewModel.Name = Information.Name;
+            viewModel.PhoneNumber = Information.PhoneNumber;
+            viewModel.Email = Information.Email;
+            viewModel.Id = Information.Id;
+            //AccountInfoViewModel model = Mapper.Map<Account, AccountInfoViewModel>(Information);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult ModifyInfo(AccountInfoViewModel model)
+        {
+            ResponseModel response = new ResponseModel();
+            if (!ModelState.IsValid)
+            {
+                foreach (var item in ModelState)
+                {
+                    if (item.Value.Errors.Count > 0)
+                    {
+                        response.Success = false;
+                        response.Msg = item.Value.Errors.FirstOrDefault().ErrorMessage;
+                    }
+                }
+            }
+            else
+            {
+                Account account = _accountService.GetById(model.Id);
+                account.UpdateTime = DateTime.Now;
+                account.Name = model.Name;
+                account.PhoneNumber = model.PhoneNumber;
+                account.Email = model.Email;
+                _accountService.Update(account);
+                _unitOfWork.Commit();
+                response.Success = true;
+                response.Msg = "已成功修改个人信息";
+                response.RedirectUrl = Url.Action("Setting", "Account");
+                return Json(response, JsonRequestBehavior.AllowGet);
+
+            }
+            return Json(response);
+
+        }
     }
 }

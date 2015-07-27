@@ -830,6 +830,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountChangePasswordViewModel.cs" />
+    <Compile Include="Models\AccountInfoViewModel.cs" />
     <Compile Include="Models\AccountLoginViewModel.cs" />
     <Compile Include="Models\AccountTradeViewModel.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
@@ -936,6 +937,8 @@
     <Content Include="Areas\Admin\Views\Systemsettings\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Systemsettings\Modify.cshtml" />
     <Content Include="Views\Withdrawals\Index.cshtml" />
+    <Content Include="Views\Withdrawals\Apply.cshtml" />
+    <Content Include="Views\Account\ModifyInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

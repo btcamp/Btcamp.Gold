@@ -14,6 +14,7 @@ namespace Btcamp.Gold.Web.Models
         [System.Web.Mvc.Remote("ValidePhoneNumber", "Account", ErrorMessage = "登陆手机号已经被注册，可直接登陆")]
         public string PhoneNumber { get; set; }
 
+        [Display(Name = "邮箱")]
         public string Email { get; set; }
 
         [Display(Name = "登陆密码")]
@@ -55,6 +56,7 @@ namespace Btcamp.Gold.Web.Models
         [StringLength(32)]
         public string MT4InvestorPwd { get; set; }
 
+        [Display(Name = "金额")]
         public double Amount { get; set; }
 
         public string MT4Account { get; set; }

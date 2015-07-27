@@ -1,0 +1,95 @@
+﻿@model Btcamp.Gold.Web.Models.AccountInfoViewModel
+@{
+    ViewBag.Title = "修改个人信息";
+}
+<div class="container-fluid" style="padding-top: 12px;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+                <div style="border-top:1px solid #CCCCCC">
+                    <div class="widget-body">
+                        <form class="form-horizontal" action="@Url.Action("ModifyInfo", "Account")" method="post" enctype="multipart/form-data">
+                            <div class="form-horizontal">
+                                <hr />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" style="padding:0 11px 0 13px; "><i class="fa fa-user"></i></span>
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "请输入姓名", @disabled = "disabled" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" style="padding:0 10px; "><i class="fa fa-list-alt"></i></span>
+                                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "请输入手机号码", @disabled = "disabled" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" style="padding:0 10px; "><i class="fa fa-credit-card"></i></span>
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "请输入邮箱帐号", @disabled = "disabled" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" style="padding:0 13px; "><i class="fa fa-money"></i></span>
+                                            @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control input-lg ", placeholder = "请输入金额", @disabled = "disabled" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-2 col-md-10  col-xs-12">
+                                            @Html.HiddenFor(e => e.Id)
+                                            <button class="btn btn-lg btn-block" id="btnsub" type="submit">
+                                                修改个人信息
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+@section pagespecific{
+    <script>
+        $(function () {
+            $("#btnsub").click(function () {
+                var disabled = $("#Name").attr("disabled");
+                var disaEamil = $("#Email").attr("disabled");
+                var disaPhone = $("#PhoneNumber").attr("disabled");
+                if (disabled != undefined || disaPhone != undefined || disaEamil != undefined) {
+                    $("#Name").removeAttr("disabled");
+                    $("#PhoneNumber").removeAttr("disabled");
+                    $("#Email").removeAttr("disabled");
+                    $(this).text("保存");
+                    return false;
+                }
+            });
+        });
+    </script>
+}

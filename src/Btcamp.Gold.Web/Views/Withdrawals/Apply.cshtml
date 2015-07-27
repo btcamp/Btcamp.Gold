@@ -1,0 +1,77 @@
+﻿@model Btcamp.Gold.Web.Models.WithdrawalsViewModel
+@{
+    ViewBag.Title = "出金申请";
+}
+<div class="container-fluid" style="padding-top: 12px;">
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+                <div style="border-top:1px solid #CCCCCC">
+                    <div class="widget-body">
+                        <form class="form-horizontal" action="@Url.Action("Apply")" method="post" enctype="multipart/form-data">
+                            <div class="form-horizontal">
+                                <hr />
+                                @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" style="padding:0 11px 0 13px; "><i class="fa fa-user"></i></span>
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "请输入姓名" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Bank, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" style="padding:0 10px; "><i class="fa fa-list-alt"></i></span>
+                                            @Html.EditorFor(model => model.Bank, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "请输入提现银行" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Bank, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.BankNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" style="padding:0 10px; "><i class="fa fa-credit-card"></i></span>
+                                            @Html.EditorFor(model => model.BankNumber, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "请输入银行卡号" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.BankNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" style="padding:0 13px; "><i class="fa fa-cny (alias)"></i></span>
+                                            @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control input-lg ", placeholder = "请输入金额" } })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-2 col-md-10  col-xs-12">
+                                            <button class="btn btn-lg btn-block" type="submit">
+                                                出金申请
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*}*@
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
