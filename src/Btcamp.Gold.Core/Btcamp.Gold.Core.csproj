@@ -82,6 +82,7 @@
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\AddressRepository.cs" />
     <Compile Include="Repository\ClosingPriceRepository.cs" />
+    <Compile Include="Repository\DepositRepository.cs" />
     <Compile Include="Repository\SystemSettingsRepository.cs" />
     <Compile Include="Repository\UserInfoRepository.cs" />
     <Compile Include="Repository\WithdrawalsRepository.cs" />
@@ -93,10 +94,12 @@
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\ClosingPriceService.cs" />
+    <Compile Include="Services\DepositService.cs" />
     <Compile Include="Services\Interface\IAccountService.cs" />
     <Compile Include="Services\Interface\IAddressService.cs" />
     <Compile Include="Services\Interface\IClosingPriceService.cs" />
     <Compile Include="Services\Interface\IMT4Service.cs" />
+    <Compile Include="Services\Interface\IDepositService.cs" />
     <Compile Include="Services\Interface\ISystemSettingsService.cs" />
     <Compile Include="Services\Interface\IUserInfoService.cs" />
     <Compile Include="Services\Interface\IWithdrawalsService.cs" />

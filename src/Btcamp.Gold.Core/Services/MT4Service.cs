@@ -133,5 +133,12 @@ namespace Btcamp.Gold.Core.Services
             }
             return list;
         }
+
+
+        public async Task<bool> ModifyBalance(string loginId, double amount)
+        {
+            MT4OperResult result = await Instance.TradeTranscationBalanceAsync(int.Parse(loginId), amount);
+            return result.ErrorCode == 0;
+        }
     }
 }

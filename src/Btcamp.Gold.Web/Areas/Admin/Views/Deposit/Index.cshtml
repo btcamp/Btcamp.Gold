@@ -1,0 +1,125 @@
+﻿@model PagedList.IPagedList<Btcamp.Gold.Core.Entitys.Deposit>
+
+
+@{
+    ViewBag.Title = "入金审核";
+}
+<style>
+    .lock {
+        color: red;
+    }
+</style>
+<div id="content">
+
+    <!-- widget grid -->
+    <section id="widget-grid" class="">
+        <!-- row -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
+
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-money"></i> </span>
+                        <h2>入金审核</h2>
+                    </header>
+                    <!-- widget div-->
+                    <div>
+                        <!-- end widget edit box -->
+                        <!-- widget content -->
+                        <div class="widget-body no-padding">
+                            <div class="dataTables_wrapper form-inline no-footer table-responsive">
+                                <table id="datatable" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr style="cursor:pointer">
+                                            <th>
+                                                <i class="fa fa-square-o"></i>
+                                            </th>
+                                            <th>编号</th>
+                                            <th>姓名</th>
+                                            <th>出金金额</th>
+                                            <th>MT4账号</th>
+                                            <th>入金时间</th>
+                                            <th>审核时间</th>
+                                            <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int index = 1;
+                                            foreach (Btcamp.Gold.Core.Entitys.Deposit item in Model.ToList())
+                                            {
+                                                <tr style="cursor:pointer" data-id="@item.Id">
+                                                    <td>
+                                                        <i class="fa fa fa-square-o"></i>
+                                                        <input type="hidden" name="name" value="@item.Id" />
+                                                    </td>
+                                                    <td>@index</td>
+                                                    <td>@item.Account.Name</td>
+                                                    <td>@item.Amount.ToString("f2")</td>
+                                                    <td>@item.Account.MT4Account</td>
+                                                    <td>@item.Time.ToString("yyyy.MM.dd HH.mm.ss")</td>
+                                                    <td>@item.UpdateTime.ToString("yyyy.MM.dd HH.mm.ss")</td>
+                                                    <td>@(item.IsAudit ? "已审核" : "未审核")</td>
+                                                    <td>
+                                                        @{
+                                                if (!item.IsAudit)
+                                                {
+                                                    <a href="@Url.Action("Check", new { Id = item.Id })" class="btn btn-success btn-xs oper"><i class="fa  fa-times"></i>&nbsp;通过审核</a>;
+                                                }
+                                                        }
+
+                                                    </td>
+                                                </tr>
+                                                index++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                                @{
+                                    if (Model.Count > 0)
+                                    {
+                                        <div class="dt-toolbar-footer">
+                                            @Html.Partial("Page", Model)
+                                        </div>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </div>
+            </article>
+        </div>
+
+    </section>
+</div>
+
+
+@section pagespecific{
+    <script>
+        $(function () {
+            $(".oper").click(function () {
+                ajaxSubmit($(this).attr("href"), null, "正在提交审核操作，请稍后....");
+                return false;
+            });
+            $("#datatable tbody tr").click(function () {
+                var $this = $(this);
+                var cls = $this.attr("class");
+                if (cls != undefined && cls.indexOf("success") >= 0) {
+                    $this.removeClass("success");
+                    $this.find("td:first i").removeClass("fa-check-square-o").addClass("fa-square-o");
+                } else {
+                    var $siblings = $this.siblings();
+                    $this.addClass("success");
+                    $this.find("td:first i").removeClass("fa-square-o").addClass("fa-check-square-o");
+                    $siblings.removeClass("success");
+                    $siblings.find("td:first i").removeClass("fa-check-square-o").addClass("fa-square-o");
+                }
+            });
+        });
+    </script>
+}
