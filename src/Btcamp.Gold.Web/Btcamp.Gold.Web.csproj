@@ -939,13 +939,10 @@
     <Content Include="Areas\Admin\Views\Systemsettings\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Systemsettings\Modify.cshtml" />
     <Content Include="Views\Withdrawals\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Withdrawals\Apply.cshtml" />
     <Content Include="Views\Account\ModifyInfo.cshtml" />
-=======
     <Content Include="Areas\Admin\Views\Deposit\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Withdrawal\Index.cshtml" />
->>>>>>> d1771d393aeb6b26c00dab46b91c5273d66ae100
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
