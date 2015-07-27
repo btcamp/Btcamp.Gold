@@ -17,7 +17,7 @@ namespace Btcamp.Gold.Web.Models
         public string PhoneNumber { get; set; }
 
         [Display(Name = "邮箱")]
-        [RegularExpression(@".+@\..+",ErrorMessage="输入正确的邮箱地址")]
+        [RegularExpression(@"^.+@.+\..+$", ErrorMessage = "输入正确的邮箱地址")]
         public string Email { get; set; }
 
         [Display(Name = "总资产")]
