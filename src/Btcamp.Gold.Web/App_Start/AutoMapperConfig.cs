@@ -28,6 +28,8 @@ namespace Btcamp.Gold.Web
             AutoMapper.Mapper.CreateMap<Withdrawals, Admin.WithdrawalsViewModel>();
             AutoMapper.Mapper.CreateMap<Admin.WithdrawalsViewModel, Withdrawals>();
 
+            AutoMapper.Mapper.CreateMap<About, Admin.AboutViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.AboutViewModel, About>();
 
             AutoMapper.Mapper.CreateMap<SystemSettings, Admin.SystemSettingsViewModel>();
             AutoMapper.Mapper.CreateMap<Admin.SystemSettingsViewModel, SystemSettings>();

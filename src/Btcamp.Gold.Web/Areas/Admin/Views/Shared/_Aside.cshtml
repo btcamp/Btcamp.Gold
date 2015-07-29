@@ -41,6 +41,10 @@
             <li class="@Html.RouteIf("index","SystemSettings", "active")">
                 <a href="@Url.Action("index", "SystemSettings")"><i class="fa fa-lg fa-fw fa-cog"></i><span class="menu-item-parent">系统设置</span></a>
             </li>
+
+            <li class="@Html.RouteIf("index","About", "active")">
+                <a href="@Url.Action("index", "About")"><i class="fa fa-lg fa-fw fa-cog"></i><span class="menu-item-parent">关于我们</span></a>
+            </li>
             @*<li class="@Html.RouteIf("graphs", "active")">
                     <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span></a>
                     <ul>

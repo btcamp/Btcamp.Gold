@@ -1,0 +1,86 @@
+﻿@model AboutViewModel
+
+@{
+    ViewBag.Title = "关于我们";
+}
+
+<style>
+    .container-fluid > .row article > .row {
+        padding: 10px;
+        border-bottom: 1px solid #808080;
+    }
+
+        .container-fluid > .row article > .row a {
+            color: black;
+        }
+
+    .righttxt {
+        text-align: right;
+    }
+</style>
+
+<div class="container-fluid" style="font-weight:bold; ">
+    <div class="row" style="text-align:center">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <div style="padding:15px 0;">
+                <img src="@Model.PhotoUrl" alt="Alternate Text" width="65px;" height="65px;" />
+            </div>
+            <div>
+                @Model.VersionNumber
+            </div>
+            <div style="padding:15px 0;">
+                @Model.Contents
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background-color: #fff;">
+        <article class="col-xs-12 col-md-12 col-lg-12">
+            <div class="row">
+                <span class="col-xs-6">@Html.DisplayNameFor(model => model.PhoneNumber)</span>
+                <span class="col-xs-6 righttxt">@Model.PhoneNumber ></span>
+            </div>
+
+            <div class="row">
+                <span class="col-xs-6">@Html.DisplayNameFor(model => model.QQGroupNumber)</span>
+                <span class="col-xs-6 righttxt">@Model.QQGroupNumber ></span>
+            </div>
+            <div class="row">
+                <span class="col-xs-6">@Html.DisplayNameFor(model => model.WeChatNumber)</span>
+                <span class="col-xs-6 righttxt">@Model.WeChatNumber ></span>
+            </div>
+        </article>
+    </div>
+    <div style="height:10px"></div>
+
+    @*<div class="row" style="background-color: #fff;">
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-xs-10">
+                        <div class="row">
+                            <a class="col-xs-10" href="#">新手引导</a>
+                            <span><i class="col-xs-2 fa fa-angle-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-10">
+                        <div class="row">
+                            <a class="col-xs-10" href="#">媒体报道</a>
+                            <i class="col-xs-2 fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10">
+                        <div class="row">
+                            <a class="col-xs-10" href="#">去评分</a>
+                            <i class="col-xs-2 fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div style="height:10px"></div>*@
+</div>

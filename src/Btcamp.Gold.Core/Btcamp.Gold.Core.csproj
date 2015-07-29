@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ApplicationCommon.cs" />
+    <Compile Include="Entitys\About.cs" />
     <Compile Include="Entitys\Account.cs" />
     <Compile Include="Entitys\Address.cs" />
     <Compile Include="Entitys\BaseEntity.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\TradeSellModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AboutRepository.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\AddressRepository.cs" />
     <Compile Include="Repository\ClosingPriceRepository.cs" />
@@ -91,10 +93,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Services\AboutService.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\ClosingPriceService.cs" />
     <Compile Include="Services\DepositService.cs" />
+    <Compile Include="Services\Interface\IAboutService.cs" />
     <Compile Include="Services\Interface\IAccountService.cs" />
     <Compile Include="Services\Interface\IAddressService.cs" />
     <Compile Include="Services\Interface\IClosingPriceService.cs" />

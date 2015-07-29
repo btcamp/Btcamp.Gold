@@ -172,7 +172,6 @@ namespace Btcamp.Gold.Web.Controllers
             viewModel.PhoneNumber = Information.PhoneNumber;
             viewModel.Email = Information.Email;
             viewModel.Id = Information.Id;
-            //AccountInfoViewModel model = Mapper.Map<Account, AccountInfoViewModel>(Information);
             return View(viewModel);
         }
 

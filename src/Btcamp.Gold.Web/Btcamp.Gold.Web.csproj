@@ -153,6 +153,9 @@
     <Content Include="Content\css\your_style.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Image\Admin\3f6b5c5d-05be-4ace-a14b-cb177edb12b1.jpg" />
+    <Content Include="Content\Image\Admin\9e9eced9-2915-43a5-bc4a-714def9d9547.jpg" />
+    <Content Include="Content\Image\Admin\d9da0bf5-e064-43c0-aa27-a26b45634930.jpg" />
     <Content Include="Content\img\ajax-loader.gif" />
     <Content Include="Content\img\ajax-loader2.gif" />
     <Content Include="Content\img\alpha.png" />
@@ -805,6 +808,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AboutController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepositController.cs" />
@@ -812,6 +816,7 @@
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\WelComeController.cs" />
     <Compile Include="Areas\Admin\Controllers\WithdrawalController.cs" />
+    <Compile Include="Areas\Admin\Models\AboutViewModel.cs" />
     <Compile Include="Areas\Admin\Models\AccountViewModel.cs" />
     <Compile Include="Areas\Admin\Models\AddressViewModel.cs" />
     <Compile Include="Areas\Admin\Models\BaseViewModel.cs" />
@@ -822,6 +827,7 @@
     <Compile Include="Areas\Admin\Models\UserLoginViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UserViewModel.cs" />
     <Compile Include="Areas\Admin\Models\WithdrawalsViewModel.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\BankController.cs" />
@@ -831,6 +837,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AboutViewModel.cs" />
     <Compile Include="Models\AccountChangePasswordViewModel.cs" />
     <Compile Include="Models\AccountInfoViewModel.cs" />
     <Compile Include="Models\AccountLoginViewModel.cs" />
@@ -943,6 +950,11 @@
     <Content Include="Views\Account\ModifyInfo.cshtml" />
     <Content Include="Areas\Admin\Views\Deposit\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Withdrawal\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\About\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\About\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\About\Modify.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\About\Indexz.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
