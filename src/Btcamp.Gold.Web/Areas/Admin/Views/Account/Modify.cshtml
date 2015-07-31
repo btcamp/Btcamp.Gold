@@ -116,9 +116,7 @@
                                             @Html.HiddenFor(e => e.SumInterest)
                                             @Html.HiddenFor(e => e.Profit)
                                             @Html.HiddenFor(e => e.IsLock)
-                                            <button class="btn btn-default" type="reset">
-                                                取消
-                                            </button>
+                                            <a href="@Url.Action("Index")" class="btn btn-default" type="reset">取消</a>
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-save"></i>
                                                 保存

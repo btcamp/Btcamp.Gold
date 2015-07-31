@@ -153,9 +153,6 @@
     <Content Include="Content\css\your_style.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\Image\Admin\3f6b5c5d-05be-4ace-a14b-cb177edb12b1.jpg" />
-    <Content Include="Content\Image\Admin\9e9eced9-2915-43a5-bc4a-714def9d9547.jpg" />
-    <Content Include="Content\Image\Admin\d9da0bf5-e064-43c0-aa27-a26b45634930.jpg" />
     <Content Include="Content\img\ajax-loader.gif" />
     <Content Include="Content\img\ajax-loader2.gif" />
     <Content Include="Content\img\alpha.png" />
@@ -963,6 +960,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Image\Admin\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
