@@ -14,6 +14,8 @@ namespace Btcamp.Gold.Core.Services.Interface
 
         Task<decimal> GetAllGold(string loginId);
 
+        Task<decimal> GetProfit(string loginId);
+
         Task<List<Models.TradingModel>> GetTradingByLoginId(string loginId);
 
         /// <summary>

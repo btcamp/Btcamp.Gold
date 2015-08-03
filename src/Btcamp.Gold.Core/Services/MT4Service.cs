@@ -75,9 +75,9 @@ namespace Btcamp.Gold.Core.Services
         public async Task<decimal> GetAllGold(string loginId)
         {
             TradeRecordSE[] trades = await Instance.GetOpenTradeByLoginAsync(int.Parse(loginId));
-            double sumProfit = trades.Sum(e => e.Profit);
-            sumProfit = Math.Round(sumProfit, 2);
-            return (decimal)sumProfit;
+            double sumGold = trades.Sum(e => e.Volume) / 100;
+            sumGold = Math.Round(sumGold, 2);
+            return (decimal)sumGold;
         }
 
 
@@ -139,6 +139,17 @@ namespace Btcamp.Gold.Core.Services
         {
             MT4OperResult result = await Instance.TradeTranscationBalanceAsync(int.Parse(loginId), amount);
             return result.ErrorCode == 0;
+        }
+
+
+        public async Task<decimal> GetProfit(string loginId)
+        {
+            TradeRecordSE[] records = await Instance.GetOpenTradeByLoginAsync(int.Parse(loginId));
+            if (records != null && records.Length > 0)
+            {
+                return (decimal)records.Sum(e => e.Profit);
+            }
+            return 0m;
         }
     }
 }

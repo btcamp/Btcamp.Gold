@@ -22,13 +22,13 @@ namespace Btcamp.Gold.Web.Controllers
             _accountService = accountService;
         }
         // GET: Home
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             if (Request.IsAuthenticated)
             {
                 Account account = _accountService.GetById(LoginAccount.Id);
                 ViewBag.Interest = account.Interest.ToString("f2");
-                ViewBag.Profit = account.Profit.ToString("f2");
+                ViewBag.Profit = await _mt4Service.GetProfit(LoginAccount.MT4Account);
             }
             else
             {
