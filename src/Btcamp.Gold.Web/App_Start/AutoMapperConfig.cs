@@ -33,6 +33,9 @@ namespace Btcamp.Gold.Web
 
             AutoMapper.Mapper.CreateMap<SystemSettings, Admin.SystemSettingsViewModel>();
             AutoMapper.Mapper.CreateMap<Admin.SystemSettingsViewModel, SystemSettings>();
+
+            AutoMapper.Mapper.CreateMap<SystemSettings, Admin.SystemSettingsKeyViewModel>();
+            AutoMapper.Mapper.CreateMap<Admin.SystemSettingsKeyViewModel, SystemSettings>();
             #endregion
 
             #region Web Model Mapper

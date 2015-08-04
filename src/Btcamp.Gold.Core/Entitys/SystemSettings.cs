@@ -17,6 +17,8 @@ namespace Btcamp.Gold.Core.Entitys
         [Required]
         [StringLength(1024 * 1024)]
         public string Info { get; set; }
+        [StringLength(1024 * 1024)]
+        public string Description { get; set; }
         public string OperationUser { get; set; }
     }
 }

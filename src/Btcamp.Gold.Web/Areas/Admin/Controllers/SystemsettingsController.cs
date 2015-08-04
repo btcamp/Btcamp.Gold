@@ -60,7 +60,7 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
         {
             ViewBag.Url = RedirectUrl;
             SystemSettings model = _systemSettingsService.GetById(id.Value);
-            SystemSettingsViewModel viewModel = Mapper.Map<SystemSettingsViewModel>(model);
+            SystemSettingsKeyViewModel viewModel = Mapper.Map<SystemSettingsKeyViewModel>(model);
             return View(viewModel);
         }
 

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zh-cn" id="@ViewBag.PageId" class="@Settings.CurrentTheme">
+<html lang="zh-cn" id="@ViewBag.PageId" class="@Settings.CurrentTheme" >
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -64,10 +64,10 @@
     <link rel="apple-touch-startup-image" href="~/content/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
     <link rel="apple-touch-startup-image" href="~/content/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 </head>
-<body class="@ViewBag.PageClass @Settings.CurrentTheme fixed-header">
+<body class="@ViewBag.PageClass @Settings.CurrentTheme fixed-header" style="padding:0 0 30px 0">
     @{ Html.RenderPartial("_Header", RenderSection("topright", false)); }
     @{ Html.RenderPartialIf("_Aside", Request.IsAuthenticated); }
-    <div id="main" role="main" style="padding-bottom:0px;">
+    <div id="main" role="main" style="padding-bottom:0px; min-height:400px;">
         @*@{ Html.RenderPartialIf("_Ribbon", Request.IsAuthenticated); }*@
         @RenderBody()
     </div>
@@ -96,4 +96,16 @@
         });
     </script>
 </body>
+<footer>
+    <table style="background:#16181B;position:fixed;bottom:0px;height:49px;width:100%;z-index:1000; text-align:center;">
+        <tr>
+            <td style="border-right:1px solid #4A4A4A;">
+                <a href="@Url.Action("index", "Home")" title="欢迎您" style="color:white;"><i class="fa fa-lg fa-fw fa-credit-card"></i> <span class="menu-item-parent">黄金罗盘</span></a>
+            </td>
+            <td>
+                <a href="@Url.Action("Setting", "Account")" title="欢迎您" style="color:white;"><i class=" fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">个人信息</span></a>
+            </td>
+        </tr>
+    </table>
+</footer>
 </html>

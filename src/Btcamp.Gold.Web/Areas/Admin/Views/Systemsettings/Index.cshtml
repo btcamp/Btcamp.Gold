@@ -45,6 +45,7 @@
                                             <th>key</th>
                                             <th>内容</th>
                                             <th>操作人</th>
+                                            <th>Key描述</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
@@ -62,6 +63,7 @@
                                                     <td>@item.Key</td>
                                                     <td>@(item.Info.Length > 50 ? item.Info.Substring(0, 50) + "..." : item.Info)</td>
                                                     <td>@item.OperationUser</td>
+                                                    <td>@item.Description</td>
                                                     <td>
                                                         <a href="@Url.Action("Modify", new { Id = item.Id })" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i>&nbsp;编辑</a>&nbsp;
                                                         <a href="@Url.Action("Del", new { Id = item.Id })" class="btn btn-danger btn-xs oper"><i class="fa  fa-times"></i>&nbsp;删除</a>&nbsp;
