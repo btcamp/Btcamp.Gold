@@ -951,6 +951,7 @@
     <Content Include="Areas\Admin\Views\About\Add.cshtml" />
     <Content Include="Areas\Admin\Views\About\Modify.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Account\Deposit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
