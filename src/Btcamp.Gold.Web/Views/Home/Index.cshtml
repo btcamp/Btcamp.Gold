@@ -50,7 +50,7 @@
             <a href="@Url.Action("Sell")" class="btn btn-block">卖出</a>
         </div>
     </div>
-    <div class="row" style="min-height:150px">
+    <div class="row" style="min-height:195px">
         <div class="fontcolor" style="padding-left:30px;min-height:50px;line-height:50px">
             昨日收益
         </div>
@@ -58,10 +58,10 @@
             @ViewBag.Profit
         </div>
         <div class="fontcolor" style="padding-left:30px;min-height:50px;line-height:50px">
-            利息
+            利率
         </div>
         <div style="padding-left:30px;font-size:1em;">
-            2.3%
+            @ViewBag.Info
         </div>
     </div>
 </div>

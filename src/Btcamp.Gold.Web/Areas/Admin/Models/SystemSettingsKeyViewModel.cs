@@ -6,12 +6,11 @@ using System.Web;
 
 namespace Btcamp.Gold.Web.Areas.Admin.Models
 {
-    public class SystemSettingsViewModel : BaseViewModel
+    public class SystemSettingsKeyViewModel : BaseViewModel
     {
         [Display(Name = "key")]
         [Required(ErrorMessage = "请录入key")]
         [StringLength(32, ErrorMessage = "key关键字过长")]
-        [System.Web.Mvc.Remote("ValiteKey","SystemSettings",ErrorMessage="请更换Key，已存在.")]
         public string Key { get; set; }
 
         [Display(Name = "内容")]
@@ -19,6 +18,7 @@ namespace Btcamp.Gold.Web.Areas.Admin.Models
         [StringLength(1024 * 1024)]
         public string Info { get; set; }
         [Display(Name = "Key值描述")]
+        [Required(ErrorMessage = "请输入描述信息")]
         [StringLength(1024 * 1024)]
         public string Description { get; set; }
         public string OperationUser { get; set; }

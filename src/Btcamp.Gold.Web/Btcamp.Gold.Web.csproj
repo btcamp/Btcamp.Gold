@@ -820,6 +820,7 @@
     <Compile Include="Areas\Admin\Models\ChangePasswordViewModel.cs" />
     <Compile Include="Areas\Admin\Models\DepositViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ResponseModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemSettingsKeyViewModel.cs" />
     <Compile Include="Areas\Admin\Models\SystemSettingsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UserLoginViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UserViewModel.cs" />

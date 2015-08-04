@@ -1,4 +1,5 @@
-﻿using Btcamp.Gold.Core.Common;
+﻿using AutoMapper;
+using Btcamp.Gold.Core.Common;
 using Btcamp.Gold.Core.Entitys;
 using Btcamp.Gold.Core.Services;
 using Btcamp.Gold.Core.Services.Interface;
@@ -16,10 +17,12 @@ namespace Btcamp.Gold.Web.Controllers
     {
         private readonly IMT4Service _mt4Service = null;
         private readonly IAccountService _accountService = null;
-        public HomeController(IMT4Service mt4Service, IAccountService accountService)
+        private readonly ISystemSettingsService _SystemSettingsService = null;
+        public HomeController(IMT4Service mt4Service, IAccountService accountService, ISystemSettingsService SystemSettingsService)
         {
             _mt4Service = mt4Service;
             _accountService = accountService;
+            _SystemSettingsService = SystemSettingsService;
         }
         // GET: Home
         public async Task<ActionResult> Index()
@@ -35,6 +38,8 @@ namespace Btcamp.Gold.Web.Controllers
                 ViewBag.Interest = 0.00;
                 ViewBag.Profit = 0.00;
             }
+            SystemSettings model = _SystemSettingsService.GetManyAsNoTracking(e => e.Key == "InterestRate").FirstOrDefault();
+            ViewBag.Info = model.Info;
             return View();
         }
 
