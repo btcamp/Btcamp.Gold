@@ -837,6 +837,7 @@
     </Compile>
     <Compile Include="Models\AboutViewModel.cs" />
     <Compile Include="Models\AccountChangePasswordViewModel.cs" />
+    <Compile Include="Models\AccountDepostiViewModel.cs" />
     <Compile Include="Models\AccountInfoViewModel.cs" />
     <Compile Include="Models\AccountLoginViewModel.cs" />
     <Compile Include="Models\AccountTradeViewModel.cs" />
@@ -953,6 +954,7 @@
     <Content Include="Areas\Admin\Views\About\Modify.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Account\Deposit.cshtml" />
+    <None Include="Properties\PublishProfiles\Gold.publish.config.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

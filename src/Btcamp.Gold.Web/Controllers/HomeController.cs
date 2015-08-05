@@ -32,14 +32,15 @@ namespace Btcamp.Gold.Web.Controllers
                 Account account = _accountService.GetById(LoginAccount.Id);
                 ViewBag.Interest = account.Interest.ToString("f2");
                 ViewBag.Profit = await _mt4Service.GetProfit(LoginAccount.MT4Account);
+                SystemSettings model = _SystemSettingsService.GetManyAsNoTracking(e => e.Key == "InterestRate").FirstOrDefault();
+                ViewBag.Info = model.Info;
             }
             else
             {
                 ViewBag.Interest = 0.00;
                 ViewBag.Profit = 0.00;
             }
-            SystemSettings model = _SystemSettingsService.GetManyAsNoTracking(e => e.Key == "InterestRate").FirstOrDefault();
-            ViewBag.Info = model.Info;
+            
             return View();
         }
 

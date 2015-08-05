@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ApplicationCommon.cs" />
+    <Compile Include="Common\DESHelper.cs" />
     <Compile Include="Entitys\About.cs" />
     <Compile Include="Entitys\Account.cs" />
     <Compile Include="Entitys\Address.cs" />

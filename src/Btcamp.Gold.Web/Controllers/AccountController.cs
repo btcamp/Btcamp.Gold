@@ -13,6 +13,7 @@ using System.Web.Security;
 using System.Threading.Tasks;
 using Btcamp.Gold.Core.Models;
 using Btcamp.Gold.Core.EventHandler;
+using Btcamp.Gold.Core.Common;
 
 namespace Btcamp.Gold.Web.Controllers
 {
@@ -22,15 +23,21 @@ namespace Btcamp.Gold.Web.Controllers
         private readonly IAccountService _accountService = null;
         private readonly IMT4Service _mt4Service = null;
         private readonly ISystemSettingsService _systemSettingService = null;
+        private readonly IDepositService _depositService = null;
+        private readonly log4net.ILog _log = null;
         public AccountController(IUnitOfWork unitOfWork,
             IAccountService accountService,
             IMT4Service mt4service,
-            ISystemSettingsService systemSettingService)
+            ISystemSettingsService systemSettingService,
+            IDepositService depositService,
+            log4net.ILog log)
         {
             this._accountService = accountService;
             this._mt4Service = mt4service;
             this._unitOfWork = unitOfWork;
             this._systemSettingService = systemSettingService;
+            this._depositService = depositService;
+            this._log = log;
         }
         // GET: Account
         public ActionResult Index()
@@ -225,8 +232,26 @@ namespace Btcamp.Gold.Web.Controllers
             string failure = _systemSettingService.Get(e => e.Key == "Failure").Info;
             string successurl = _systemSettingService.Get(e => e.Key == "Successurl").Info;
             string formurl = _systemSettingService.Get(e => e.Key == "Formurl").Info;
-            ViewBag.Url = string.Format("{0}?Username={1}&Email={2}&LinkPhone={3}&successurl={4}&Failurl={5}&Paytype={6}&Formurl={7}", payurl, account.Name, account.Email, account.MT4Account, successurl, failure, paytype, formurl);
+            //email 赋值成的Phone联系方式，支付接口那边以email为唯一建操作的
+            ViewBag.Url = string.Format("{0}?Username={1}&Email={2}&LinkPhone={3}&successurl={4}&Failurl={5}&Paytype={6}&Formurl={7}", payurl, account.Name, account.PhoneNumber, account.MT4Account, successurl, failure, paytype, formurl);
             return View();
+        }
+
+        public ActionResult Success(string Content, bool isServerCall = false)
+        {
+            Content = DESHelper.DecryptDES(Content);
+            _log.DebugFormat("第一步：{0}", Content);
+            AccountDepostiViewModel depostiViewModel = JsonConvert.DeserializeObject<AccountDepostiViewModel>(Content);
+            _log.DebugFormat("第二步：{0}", JsonConvert.SerializeObject(depostiViewModel));
+            Btcamp.Gold.Core.Entitys.Deposit model = new Btcamp.Gold.Core.Entitys.Deposit();
+            Account account = _accountService.Get(a => a.PhoneNumber == depostiViewModel.Email);
+            model.AccountId = account.Id;
+            model.Amount = depostiViewModel.Amount;
+            model.IsAudit = false;
+            _depositService.Add(model);
+            _unitOfWork.Commit();
+            _log.DebugFormat("第三步：{0}", "ok");
+            return Json(Content, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
