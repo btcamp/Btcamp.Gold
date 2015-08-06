@@ -79,8 +79,9 @@ namespace Btcamp.Gold.Web.Controllers
             }
             else
             {
-                response.Success = false;
-                response.Msg = "买入黄金失败；请检查账户余额";
+                response.Success = true;
+                response.Msg = "账户余额不足,买入黄金失败";
+                response.RedirectUrl = Url.Action("Deposit", "Account");
             }
             return Json(response, JsonRequestBehavior.AllowGet);
         }

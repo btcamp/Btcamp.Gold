@@ -20,6 +20,7 @@ namespace Btcamp.Gold.Web.Models
 
         [StringLength(6, ErrorMessage = "邮编最长为6位有效长度")]
         [Display(Name = "邮编")]
+        [RegularExpression(@"^.+@.+\..+$", ErrorMessage = "输入正确的邮箱地址")]
         [Required(ErrorMessage = "请输入邮编")]
         public string ZipCode { get; set; }
 

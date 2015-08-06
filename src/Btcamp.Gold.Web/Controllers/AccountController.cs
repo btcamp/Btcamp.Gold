@@ -99,6 +99,9 @@ namespace Btcamp.Gold.Web.Controllers
             response.Success = true;
             response.Msg = "欢迎您，已经成功加入我们";
             CustomRaiseEvent.RaiseAccountRegister(account);//触发用户注册事件
+            string result = JsonConvert.SerializeObject(new { Id = account.Id, Name = account.Name, MT4Account = account.MT4Account });
+            FormsAuthentication.SetAuthCookie(result, true);
+            response.RedirectUrl = Url.Action("Deposit", "Account");
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 

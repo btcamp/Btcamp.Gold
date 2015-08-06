@@ -40,21 +40,21 @@
                         <div class="row datarow" @style>
                             <div class="col-xs-12">
                                 <div class="row">
-                                    <div class="col-xs-4">姓名:@item.Name</div>
-                                    <div class="col-xs-8">银行:@item.Bank</div>
+                                    <div class="col-xs-5">姓名:@item.Name</div>
+                                    <div class="col-xs-7">银行:@item.Bank</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12">银行卡号:@item.BankNumber</div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-6">金额:@item.Amount.ToString("f2")</div>
+                                    <div class="col-xs-5">金额:@item.Amount.ToString("f2")</div>
                                     @if (item.IsAudit == false)
                                     {
-                                        <div class="col-xs-4" style="color:red">审核状态:未审核</div>
+                                        <div class="col-xs-7" style="color:red">审核状态:未审核</div>
                                     }
                                     else
                                     {
-                                        <div class="col-xs-8" style="color:blue">审核状态:已审核</div>
+                                        <div class="col-xs-7" style="color:blue">审核状态:已审核</div>
                                     }
 
                                 </div>

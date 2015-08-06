@@ -23,12 +23,12 @@ namespace Btcamp.Gold.Web.Models
         [StringLength(36, MinimumLength = 6, ErrorMessage = "密码长度只能是6-20位的字符长度")]
         public string LoginPwd { get; set; }
 
-        [Display(Name = "重复密码")]
-        [Required(ErrorMessage = "重复登陆密码")]
-        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
-        [StringLength(36, MinimumLength = 6, ErrorMessage = "密码长度只能是6-20位的字符长度")]
-        [Compare("LoginPwd", ErrorMessage = "两次密码不一致")]
-        public string ConfirmPwd { get; set; }
+        //[Display(Name = "重复密码")]
+        //[Required(ErrorMessage = "重复登陆密码")]
+        //[DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
+        //[StringLength(36, MinimumLength = 6, ErrorMessage = "密码长度只能是6-20位的字符长度")]
+        //[Compare("LoginPwd", ErrorMessage = "两次密码不一致")]
+        //public string ConfirmPwd { get; set; }
 
         [Display(Name="开户人")]
         [StringLength(32)]

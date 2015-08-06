@@ -16,7 +16,7 @@
                                     @Html.LabelFor(e => e.Name, new { @class = "col-md-2 control-label" })
                                     <div class="col-md-10">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <span class="input-group-addon" style="padding:0 12px; "><i class="fa fa-user"></i></span>
                                             @Html.TextBoxFor(e => e.Name, new { @class = "form-control input-lg",placeholder = "请输入开户姓名" })
                                         </div>
                                         @Html.ValidationMessageFor(e => e.Name)
@@ -36,7 +36,7 @@
                                     @Html.LabelFor(e => e.Bank, new { @class = "col-md-2 control-label" })
                                     <div class="col-md-10">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa  fa-bank"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-bank"></i></span>
                                             @Html.TextBoxFor(e => e.Bank, new { @class = "form-control input-lg", placeholder = "请输入开户行" })
                                         </div>
                                         @Html.ValidationMessageFor(e => e.Bank)
@@ -46,7 +46,7 @@
                                     @Html.LabelFor(e => e.BankBranch, new { @class = "col-md-2 control-label" })
                                     <div class="col-md-10">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa  fa-bank"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
                                             @Html.TextBoxFor(e => e.BankBranch, new { @class = "form-control input-lg", placeholder = "请输入开户行分行" })
                                         </div>
                                         @Html.ValidationMessageFor(e => e.BankBranch)
@@ -56,7 +56,7 @@
                                     @Html.LabelFor(e => e.BankNumber, new { @class = "col-md-2 control-label" })
                                     <div class="col-md-10">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-bank"></i></span>
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
                                             @Html.TextBoxFor(e => e.BankNumber, new { @class = "form-control input-lg", placeholder = "请输入银行卡号" })
                                         </div>
                                         @Html.ValidationMessageFor(e=>e.BankNumber)

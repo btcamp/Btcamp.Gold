@@ -33,12 +33,11 @@
                         <div class="row datarow">
                             <div class="col-xs-10">
                                 <div class="row">
-                                    <div class="col-xs-7">@item.Name</div>
-                                    <div class="col-xs-5">@item.PhoneNumber</div>
+                                    <div class="col-xs-5">姓名: @item.Name</div>
+                                    <div class="col-xs-7">电话: @item.PhoneNumber</div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12">@item.DetailAddress</div>
-
+                                    <div class="col-xs-12">联系地址: @item.DetailAddress</div>
                                 </div>
                             </div>
                             <div class="col-xs-2 dataaction">
@@ -59,7 +58,7 @@
         </article>
     </div>
 
-    <div class="fiexdtool" style="margin-bottom:49px;">
+    <div class="fiexdtool">
         <div class="row">
             <a href="@Url.Action("Add")" class="btn btn-block btn-lg">新增收货人</a>
         </div>

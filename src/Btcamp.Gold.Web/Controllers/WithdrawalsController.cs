@@ -42,7 +42,9 @@ namespace Btcamp.Gold.Web.Controllers
         public ActionResult Apply(WithdrawalsViewModel model)
         {
             ResponseModel response = new ResponseModel();
-            AccountViewModel account = new AccountViewModel();
+            //Guid guid = Guid.NewGuid();
+            Guid guid = Guid.Parse("aa509382-566d-4001-a66c-02dd74eaced9");
+            Account account = accountService.GetById(guid);
             if (string.IsNullOrEmpty(account.Name) || string.IsNullOrEmpty(account.Bank) || string.IsNullOrEmpty(account.BankBranch) || string.IsNullOrEmpty(account.BankNumber))
             {
                 response.Success = false;
