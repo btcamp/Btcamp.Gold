@@ -12,14 +12,13 @@ namespace Btcamp.Gold.Web.Models
         [Required(ErrorMessage = "请输入姓名")]
         [StringLength(32,ErrorMessage="输入有效的姓名")]
         public string Name { get; set; }
-        //ww@qq.com
         [Display(Name = "手机号")]
         [Required(ErrorMessage = "请输入手机号")]
         [RegularExpression(@"^\d{11}$", ErrorMessage = "请输入正确的手机号")]
         public string PhoneNumber { get; set; }
 
         [Display(Name = "邮箱")]
-        [StringLength(6, ErrorMessage = "邮编最长为6位有效长度")]
+        [Required(ErrorMessage = "请输入邮箱")]
         [RegularExpression(@"^.+@.+\..+$", ErrorMessage = "输入正确的邮箱地址")]
         public string Email { get; set; }
 

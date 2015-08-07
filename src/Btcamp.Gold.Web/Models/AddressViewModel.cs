@@ -18,9 +18,8 @@ namespace Btcamp.Gold.Web.Models
         [Required(ErrorMessage = "请输入联系电话")]
         public string PhoneNumber { get; set; }
 
-        [StringLength(6, ErrorMessage = "邮编最长为6位有效长度")]
         [Display(Name = "邮编")]
-        [RegularExpression(@"^.+@.+\..+$", ErrorMessage = "输入正确的邮箱地址")]
+        [RegularExpression(@"^\d{6}$", ErrorMessage = "邮编为6位有效数字")]
         [Required(ErrorMessage = "请输入邮编")]
         public string ZipCode { get; set; }
 
