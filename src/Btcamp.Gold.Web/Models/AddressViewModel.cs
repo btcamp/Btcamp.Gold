@@ -19,8 +19,8 @@ namespace Btcamp.Gold.Web.Models
         public string PhoneNumber { get; set; }
 
         [Display(Name = "邮编")]
-        [RegularExpression(@"^\d{6}$", ErrorMessage = "邮编为6位有效数字")]
         [Required(ErrorMessage = "请输入邮编")]
+        [RegularExpression(@"^\d{6}$", ErrorMessage = "邮编为6位有效数字")]
         public string ZipCode { get; set; }
 
         [StringLength(128, ErrorMessage = "详细收货地址最长为128位有效长度")]
