@@ -1,0 +1,105 @@
+第一步：{"Username":null,"Linkphone":null,"Phone":null,"Email":"18620190165","Amount":"0.01","Paytype":0,"Billno":"2015081012150418876","Successurl":"http://42.121.109.5:10070/Home/Success","Failurl":null,"PayBillno":null,"Formurl":null,"USD":null,"CNY":null}第二步：{"Username":null,"Email":"18620190165","Amount":0.01,"Phone":null,"Billno":"2015081012150418876","Linkphone":null}System.InvalidOperationException: The model backing the 'DataContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   在 System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   在 Btcamp.Gold.Core.Infrastructure.RepositoryBase`1.Get(Expression`1 where) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Core\Infrastructure\RepositoryBase.cs:行号 65
+   在 Btcamp.Gold.Core.Infrastructure.ServiceBase`1.Get(Expression`1 where) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Core\Infrastructure\ServiceBase.cs:行号 50
+   在 Btcamp.Gold.Web.Pay.Controllers.HomeController.Success(String Content, Boolean isServerCall) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Web.Pay\Controllers\HomeController.cs:行号 60第一步：{"Username":null,"Linkphone":null,"Phone":null,"Email":"18620190165","Amount":"0.01","Paytype":0,"Billno":"2015081012150418876","Successurl":"http://42.121.109.5:10070/Home/Success","Failurl":null,"PayBillno":null,"Formurl":null,"USD":null,"CNY":null}第二步：{"Username":null,"Email":"18620190165","Amount":0.01,"Phone":null,"Billno":"2015081012150418876","Linkphone":null}System.InvalidOperationException: The model backing the 'DataContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.<>c__DisplayClass8.<PerformDatabaseInitialization>b__6()
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   在 System.Data.Entity.Internal.InternalContext.Initialize()
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   在 System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   在 Btcamp.Gold.Core.Infrastructure.RepositoryBase`1.Get(Expression`1 where) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Core\Infrastructure\RepositoryBase.cs:行号 65
+   在 Btcamp.Gold.Core.Infrastructure.ServiceBase`1.Get(Expression`1 where) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Core\Infrastructure\ServiceBase.cs:行号 50
+   在 Btcamp.Gold.Web.Pay.Controllers.HomeController.Success(String Content, Boolean isServerCall) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Web.Pay\Controllers\HomeController.cs:行号 60第一步：{"Username":null,"Linkphone":null,"Phone":null,"Email":"18620190165","Amount":"0.01","Paytype":0,"Billno":"2015081012150418876","Successurl":"http://42.121.109.5:10070/Home/Success","Failurl":null,"PayBillno":null,"Formurl":null,"USD":null,"CNY":null}第二步：{"Username":null,"Email":"18620190165","Amount":0.01,"Phone":null,"Billno":"2015081012150418876","Linkphone":null}System.InvalidOperationException: The model backing the 'DataContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   在 System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   在 Btcamp.Gold.Core.Infrastructure.RepositoryBase`1.Get(Expression`1 where)
+   在 Btcamp.Gold.Core.Infrastructure.ServiceBase`1.Get(Expression`1 where)
+   在 Btcamp.Gold.Web.Pay.Controllers.HomeController.Success(String Content, Boolean isServerCall) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Web.Pay\Controllers\HomeController.cs:行号 60第一步：{"Username":null,"Linkphone":null,"Phone":null,"Email":"18620190165","Amount":"0.01","Paytype":0,"Billno":"2015081012150418876","Successurl":"http://42.121.109.5:10070/Home/Success","Failurl":null,"PayBillno":null,"Formurl":null,"USD":null,"CNY":null}第二步：{"Username":null,"Email":"18620190165","Amount":0.01,"Phone":null,"Billno":"2015081012150418876","Linkphone":null}System.Data.Entity.Infrastructure.DbUpdateException: 更新条目时出错。有关详细信息，请参见内部异常。 ---> System.Data.UpdateException: 更新条目时出错。有关详细信息，请参见内部异常。 ---> System.Data.SqlClient.SqlException: The conversion of a datetime2 data type to a datetime data type resulted in an out-of-range value.
+The statement has been terminated.
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Mapping.Update.Internal.DynamicUpdateCommand.Execute(UpdateTranslator translator, EntityConnection connection, Dictionary`2 identifierValues, List`1 generatedValues)
+   在 System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   在 System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 Btcamp.Gold.Core.Infrastructure.UnitOfWork.Commit()
+   在 Btcamp.Gold.Web.Pay.Controllers.HomeController.Success(String Content, Boolean isServerCall) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Web.Pay\Controllers\HomeController.cs:行号 65第一步：{"Username":null,"Linkphone":null,"Phone":null,"Email":"18620190165","Amount":"0.01","Paytype":0,"Billno":"2015081012150418876","Successurl":"http://42.121.109.5:10070/Home/Success","Failurl":null,"PayBillno":null,"Formurl":null,"USD":null,"CNY":null}第二步：{"Username":null,"Email":"18620190165","Amount":0.01,"Phone":null,"Billno":"2015081012150418876","Linkphone":null}System.Data.Entity.Infrastructure.DbUpdateException: 更新条目时出错。有关详细信息，请参见内部异常。 ---> System.Data.UpdateException: 更新条目时出错。有关详细信息，请参见内部异常。 ---> System.Data.SqlClient.SqlException: The conversion of a datetime2 data type to a datetime data type resulted in an out-of-range value.
+The statement has been terminated.
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Mapping.Update.Internal.DynamicUpdateCommand.Execute(UpdateTranslator translator, EntityConnection connection, Dictionary`2 identifierValues, List`1 generatedValues)
+   在 System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   在 System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 Btcamp.Gold.Core.Infrastructure.UnitOfWork.Commit() 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Core\Infrastructure\UnitOfWork.cs:行号 19
+   在 Btcamp.Gold.Web.Pay.Controllers.HomeController.Success(String Content, Boolean isServerCall) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Web.Pay\Controllers\HomeController.cs:行号 66第一步：{"Username":null,"Linkphone":null,"Phone":null,"Email":"18620190165","Amount":"0.01","Paytype":0,"Billno":"2015081012150418876","Successurl":"http://42.121.109.5:10070/Home/Success","Failurl":null,"PayBillno":null,"Formurl":null,"USD":null,"CNY":null}第二步：{"Username":null,"Email":"18620190165","Amount":0.01,"Phone":null,"Billno":"2015081012150418876","Linkphone":null}System.Data.Entity.Infrastructure.DbUpdateException: 更新条目时出错。有关详细信息，请参见内部异常。 ---> System.Data.UpdateException: 更新条目时出错。有关详细信息，请参见内部异常。 ---> System.Data.SqlClient.SqlException: The conversion of a datetime2 data type to a datetime data type resulted in an out-of-range value.
+The statement has been terminated.
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Mapping.Update.Internal.DynamicUpdateCommand.Execute(UpdateTranslator translator, EntityConnection connection, Dictionary`2 identifierValues, List`1 generatedValues)
+   在 System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   在 System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   在 System.Data.Entity.DbContext.SaveChanges()
+   在 Btcamp.Gold.Core.Infrastructure.UnitOfWork.Commit() 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Core\Infrastructure\UnitOfWork.cs:行号 19
+   在 Btcamp.Gold.Web.Pay.Controllers.HomeController.Success(String Content, Boolean isServerCall) 位置 d:\Work\Btcamp.Gold\src\Btcamp.Gold.Web.Pay\Controllers\HomeController.cs:行号 66第一步：{"Username":null,"Linkphone":null,"Phone":null,"Email":"18620190165","Amount":"0.01","Paytype":0,"Billno":"2015081012150418876","Successurl":"http://42.121.109.5:10070/Home/Success","Failurl":null,"PayBillno":null,"Formurl":null,"USD":null,"CNY":null}第二步：{"Username":null,"Email":"18620190165","Amount":0.01,"Phone":null,"Billno":"2015081012150418876","Linkphone":null}第三步：ok

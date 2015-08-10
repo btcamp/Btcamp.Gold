@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<!DOCTYPE html>
+
+<html style="height: 100%;">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>黄金罗盘账户入金</title>
+
+</head>
+<body>
+    <div id="loading" style="text-align:center;padding-top:100px">
+        <img src="~/Assets/imgs/loading.gif" alt="加载" />
+    </div>
+    <div id="iframediv" >
+        <iframe src="@ViewBag.Url" style="border:none;min-width:100%" onload="iframeOnload()"></iframe>
+    </div>
+    <script src="http://libs.useso.com/js/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#iframediv").hide();
+            $("iframe").css("min-height", ($("html").height() - 20) + "px");
+            $("#loading").css("min-height", ($("html").height()-20) + "px");
+
+        });
+        function iframeOnload() {
+            $("#iframediv").show();
+            $("#loading").hide();
+        }
+    </script>
+
+</body>
+</html>

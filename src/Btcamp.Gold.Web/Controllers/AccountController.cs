@@ -228,33 +228,9 @@ namespace Btcamp.Gold.Web.Controllers
 
         public ActionResult Deposit()
         {
-            //http://shypet.cn/Payment/Index?Username=测试&Phone=15208377468&Email=22335114101112@qq.com&Linkphone=88163584&Successurl=http://www.fino.trade/umbraco/Api/Payment/PaySuccess&Failurl=http://www.fino.trade/umbraco/Api/Payment/PayFailure&Paytype=2&Formurl=https://pay.ecpss.com/sslpayment&USD=1.00&CNY=6.2210
-            Account account = _accountService.GetManyAsNoTracking(e => e.Id == LoginAccount.Id).FirstOrDefault();
-            string payurl = _systemSettingService.Get(e => e.Key == "pay").Info;
-            string paytype = _systemSettingService.Get(e => e.Key == "Paytype").Info;
-            string failure = _systemSettingService.Get(e => e.Key == "Failure").Info;
-            string successurl = _systemSettingService.Get(e => e.Key == "Successurl").Info;
-            string formurl = _systemSettingService.Get(e => e.Key == "Formurl").Info;
-            //email 赋值成的Phone联系方式，支付接口那边以email为唯一建操作的
-            ViewBag.Url = string.Format("{0}?Username={1}&Email={2}&LinkPhone={3}&successurl={4}&Failurl={5}&Paytype={6}&Formurl={7}", payurl, account.Name, account.PhoneNumber, account.MT4Account, successurl, failure, paytype, formurl);
+            SystemSettings setting = _systemSettingService.Get(e => e.Key == "depositMsg");
+            ViewBag.Msg = setting == null ? string.Empty : setting.Info;
             return View();
-        }
-
-        public ActionResult Success(string Content, bool isServerCall = false)
-        {
-            Content = DESHelper.DecryptDES(Content);
-            _log.DebugFormat("第一步：{0}", Content);
-            AccountDepostiViewModel depostiViewModel = JsonConvert.DeserializeObject<AccountDepostiViewModel>(Content);
-            _log.DebugFormat("第二步：{0}", JsonConvert.SerializeObject(depostiViewModel));
-            Btcamp.Gold.Core.Entitys.Deposit model = new Btcamp.Gold.Core.Entitys.Deposit();
-            Account account = _accountService.Get(a => a.PhoneNumber == depostiViewModel.Email);
-            model.AccountId = account.Id;
-            model.Amount = depostiViewModel.Amount;
-            model.IsAudit = false;
-            _depositService.Add(model);
-            _unitOfWork.Commit();
-            _log.DebugFormat("第三步：{0}", "ok");
-            return Json(Content, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

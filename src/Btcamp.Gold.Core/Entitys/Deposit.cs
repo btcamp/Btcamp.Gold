@@ -21,9 +21,12 @@ namespace Btcamp.Gold.Core.Entitys
         /// </summary>
         public bool IsAudit { get; set; }
 
+        [StringLength(64)]
+        public string OrderNumber { get; set; }
+
         [ForeignKey("AccountId")]
         public virtual Account Account { get; set; }
-        [StringLength(36)]
+
         public Guid AccountId { get; set; }
     }
 }

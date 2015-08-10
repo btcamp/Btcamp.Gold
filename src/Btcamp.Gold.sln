@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Btcamp.Gold.Core", "Btcamp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Btcamp.Gold.Web", "Btcamp.Gold.Web\Btcamp.Gold.Web.csproj", "{1FE059C7-C7E9-4848-91AF-E3ADB721F9F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Btcamp.Gold.Web.Pay", "Btcamp.Gold.Web.Pay\Btcamp.Gold.Web.Pay.csproj", "{C8F53A5B-963F-45D8-B987-C8BD0CD267FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1FE059C7-C7E9-4848-91AF-E3ADB721F9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FE059C7-C7E9-4848-91AF-E3ADB721F9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FE059C7-C7E9-4848-91AF-E3ADB721F9F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8F53A5B-963F-45D8-B987-C8BD0CD267FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8F53A5B-963F-45D8-B987-C8BD0CD267FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8F53A5B-963F-45D8-B987-C8BD0CD267FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8F53A5B-963F-45D8-B987-C8BD0CD267FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

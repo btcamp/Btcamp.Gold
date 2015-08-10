@@ -1,10 +1,15 @@
-﻿<iframe src="@ViewBag.Url" style="border:none;min-width:100%"></iframe>
-
-
-@section pagespecific{
-    <script type="text/javascript">
-        $(function () {
-            $("iframe").css("min-height", ($("html").height() - $("#header").height()) + "px");
-        });
-    </script>
+﻿@{
+    ViewBag.Title = "SumInterest";
 }
+
+<div class="container-fluid" style="padding-top: 12px;">
+    <div class="row" style="background-color: #fff;">
+        <article class="col-sm-12 col-md-12 col-lg-12">
+            <div style="text-align:center;padding:10px">
+                <div>
+                    @ViewBag.Msg
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
