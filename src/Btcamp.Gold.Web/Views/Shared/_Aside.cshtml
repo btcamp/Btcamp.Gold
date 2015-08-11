@@ -18,8 +18,26 @@
         traditional href="" links. See documentation for details.
         -->
         <ul>
-            <li class="@Html.RouteIf("index","Home", "active")">
-                <a href="@Url.Action("index", "Home")" title="欢迎您"><i class="fa fa-lg fa-fw fa-credit-card"></i> <span class="menu-item-parent">黄金罗盘</span></a>
+            <li class="@Html.RouteIf("Add", "Bank", "active")">
+                <a href="@Url.Action("Add", "Bank")" title="欢迎您"><i class="fa fa-lg fa-fw fa-credit-card"></i> <span class="menu-item-parent">我的银行卡</span></a>
+            </li>
+            <li class="@Html.RouteIf("Deposit", "Account", "active")">
+                <a href="@Url.Action("Deposit", "Account")" title="欢迎您"><i class="fa fa-lg fa-fw fa-usd"></i> <span class="menu-item-parent">充值</span></a>
+            </li>
+            <li class="@Html.RouteIf("Index", "Withdrawals", "active")">
+                <a href="@Url.Action("Index", "Withdrawals")" title="欢迎您"><i class="fa fa-lg fa-fw fa-money"></i> <span class="menu-item-parent">提现</span></a>
+            </li>
+            <li class="@Html.RouteIf("Tradelogs", "Account", "active")">
+                <a href="@Url.Action("Tradelogs", "Account")" title="欢迎您"><i class="fa fa-lg fa-fw fa-file-text-o"></i> <span class="menu-item-parent">交易订单</span></a>
+            </li>
+            <li class="@Html.RouteIf("ModifyInfo", "Account", "active")">
+                <a href="@Url.Action("ModifyInfo", "Account")" title="欢迎您"><i class="fa fa-lg fa-fw fa-user"></i> <span class="menu-item-parent">个人信息</span></a>
+            </li>
+            <li class="@Html.RouteIf("Index", "Address", "active")">
+                <a href="@Url.Action("Index", "Address")" title="欢迎您"><i class="fa fa-lg fa-fw fa-map-marker"></i> <span class="menu-item-parent">我的地址</span></a>
+            </li>
+            <li class="@Html.RouteIf("ChangePassword", "Account", "active")">
+                <a href="@Url.Action("ChangePassword", "Account")" title="欢迎您"><i class="fa fa-lg fa-fw fa-lock"></i> <span class="menu-item-parent">修改密码</span></a>
             </li>
             <li class="@Html.RouteIf("Setting", "Account", "active")">
                 <a href="@Url.Action("Setting", "Account")" title="欢迎您"><i class="fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">个人设置</span></a>
