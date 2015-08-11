@@ -14,6 +14,8 @@ namespace Btcamp.Gold.Core.Entitys
 
         public double Amount { get; set; }
 
+        public double USDAmount { get; set; }
+
         public DateTime Time { get; set; }
 
         /// <summary>

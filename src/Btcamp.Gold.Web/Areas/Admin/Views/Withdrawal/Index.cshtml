@@ -37,7 +37,7 @@
                                             </th>
                                             <th>编号</th>
                                             <th>姓名</th>
-                                            <th>提现金额</th>
+                                            <th>提现金额(USD)</th>
                                             <th>MT4账号</th>
                                             <th>提现时间</th>
                                             <th>审核时间</th>
@@ -50,7 +50,8 @@
                                             int index = 1;
                                             foreach (Btcamp.Gold.Core.Entitys.Withdrawals item in Model.ToList())
                                             {
-                                                <tr style="cursor:pointer" data-id="@item.Id">
+                                                string statusclass = item.IsAudit ? "" : "class=lock";
+                                                <tr @statusclass style="cursor:pointer" data-id="@item.Id">
                                                     <td>
                                                         <i class="fa fa fa-square-o"></i>
                                                         <input type="hidden" name="name" value="@item.Id" />

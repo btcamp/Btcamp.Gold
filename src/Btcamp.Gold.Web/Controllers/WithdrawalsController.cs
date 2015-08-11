@@ -26,7 +26,7 @@ namespace Btcamp.Gold.Web.Controllers
         // GET: Withdrawals
         public ActionResult Index(int pageIndex = 1, int pageSize = 10)
         {
-            Page page = new Page(pageIndex,pageSize);
+            Page page = new Page(pageIndex, pageSize);
             List<Withdrawals> list = withdrawalsService.GetPageAsNoTracking(page, e => true, e => e.UpdateTime, true).ToList();
             List<WithdrawalsViewModel> result = Mapper.Map<List<WithdrawalsViewModel>>(list);
             return View(result);
@@ -43,12 +43,11 @@ namespace Btcamp.Gold.Web.Controllers
         {
             ResponseModel response = new ResponseModel();
             //Guid guid = Guid.NewGuid();
-            Guid guid = Guid.Parse("aa509382-566d-4001-a66c-02dd74eaced9");
-            Account account = accountService.GetById(guid);
+            Account account = accountService.GetById(LoginAccount.Id);
             if (string.IsNullOrEmpty(account.Name) || string.IsNullOrEmpty(account.Bank) || string.IsNullOrEmpty(account.BankBranch) || string.IsNullOrEmpty(account.BankNumber))
             {
                 response.Success = false;
-                response.Msg = "您还未进行实名认证！";
+                response.Msg = "您还未进行实名认证！请完善个人信息和银行卡信息";
             }
             else
             {

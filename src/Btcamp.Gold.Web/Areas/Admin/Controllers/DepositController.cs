@@ -38,7 +38,7 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
         public ActionResult Index(int pageIndex = 1, int pageSize = 20)
         {
             Page page = new Page(pageIndex, pageSize);
-            IPagedList<Deposit> list = depositService.GetPageAsNoTracking(page, e => true, e => e.UpdateTime, true);
+            IPagedList<Deposit> list = depositService.GetPageAsNoTracking(page, e => true, e => e.IsAudit, false);
             return View(list);
         }
 
@@ -50,17 +50,19 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
             //1.入金mt4金额
             //2.修改account的金额
             //3.修改审核状态
-            bool flg = await mt4Service.ModifyBalance(model.Account.MT4Account, model.Amount);
+            double amount = Math.Round(model.USDAmount, 2);
+            bool flg = await mt4Service.ModifyBalance(model.Account.MT4Account, amount);
             if (flg)
             {
                 Account account = accountService.GetById(model.AccountId);
-                account.Amount += model.Amount;
+                account.Amount += amount;
                 model.IsAudit = true;
                 accountService.Update(account);
                 depositService.Update(model);
                 unitOfWork.Commit();
                 response.Msg = "成功审核入金申请!";
                 response.Success = true;
+                response.RedirectUrl = RedirectUrl;
             }
             else
             {

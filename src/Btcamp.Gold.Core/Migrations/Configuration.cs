@@ -13,8 +13,8 @@ namespace Btcamp.Gold.Core.Migrations
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
 #else
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
 #endif
         }
 

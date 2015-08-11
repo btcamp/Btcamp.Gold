@@ -71,6 +71,7 @@ namespace Btcamp.Gold.Web.Areas.Admin.Controllers
                 unitOfWork.Commit();
                 response.Msg = "成功审核提现申请!";
                 response.Success = true;
+                response.RedirectUrl = RedirectUrl;
             }
             else
             {

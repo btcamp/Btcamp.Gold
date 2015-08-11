@@ -138,7 +138,7 @@ namespace Btcamp.Gold.Core.Services
         public async Task<bool> ModifyBalance(string loginId, double amount)
         {
             MT4OperResult result = await Instance.TradeTranscationBalanceAsync(int.Parse(loginId), amount);
-            return result.ErrorCode == 0;
+            return result.ReturnValue == 0;
         }
 
 
@@ -150,6 +150,17 @@ namespace Btcamp.Gold.Core.Services
                 return (decimal)records.Sum(e => e.Profit);
             }
             return 0m;
+        }
+
+
+        public async Task<decimal> GetUSDCNY()
+        {
+            MT4.SymbolInfoSE symbol = await Instance.GetSymbolInfoAsync(ApplicationCommon.USDCNHName);
+            if (symbol == null || string.IsNullOrEmpty(symbol.Symbol))
+            {
+                return (decimal)6.2961;
+            }
+            return ((decimal)symbol.Ask + (decimal)symbol.Bid) / 2;
         }
     }
 }

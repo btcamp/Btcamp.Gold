@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,12 +18,14 @@ namespace Btcamp.Gold.Web.Pay.Controllers
         private readonly ISystemSettingsService systemSettingService = null;
         private readonly IAccountService accountService = null;
         private readonly IDepositService depositService = null;
+        private readonly IMT4Service mt4Service = null;
         private readonly IUnitOfWork unitOfWork = null;
-        public HomeController(ISystemSettingsService _systemSettingService, IAccountService _accountService, IDepositService _depositService, IUnitOfWork _unitOfWork)
+        public HomeController(ISystemSettingsService _systemSettingService, IAccountService _accountService, IDepositService _depositService, IMT4Service _mt4Service, IUnitOfWork _unitOfWork)
         {
             this.accountService = _accountService;
             this.systemSettingService = _systemSettingService;
             this.depositService = _depositService;
+            this.mt4Service = _mt4Service;
             this.unitOfWork = _unitOfWork;
         }
         //
@@ -41,9 +44,9 @@ namespace Btcamp.Gold.Web.Pay.Controllers
             return View();
         }
 
-        public ActionResult Success(string Content, bool isServerCall = false)
+        public async Task<ActionResult> Success(string Content, bool isServerCall = false)
         {
-            Content = DESHelper.DecryptDES(Content);
+            //Content = DESHelper.DecryptDES(Content);
             string path = Server.MapPath("/log");
             if (!System.IO.Directory.Exists(path))
             {
@@ -60,6 +63,8 @@ namespace Btcamp.Gold.Web.Pay.Controllers
                 Account account = accountService.Get(a => a.PhoneNumber == depostiViewModel.Email);
                 model.AccountId = account.Id;
                 model.OrderNumber = depostiViewModel.Billno;
+                decimal rate = await mt4Service.GetUSDCNY();
+                model.USDAmount = Convert.ToDouble((decimal)depostiViewModel.Amount / rate);
                 model.Amount = depostiViewModel.Amount;
                 model.IsAudit = false;
                 model.Time = DateTime.Now;

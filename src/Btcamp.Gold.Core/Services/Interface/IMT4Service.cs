@@ -28,5 +28,7 @@ namespace Btcamp.Gold.Core.Services.Interface
         Task<List<Models.TradingModel>> GetTradeLogs(string loginId);
 
         Task<bool> ModifyBalance(string loginId, double amount);
+
+        Task<decimal> GetUSDCNY();
     }
 }

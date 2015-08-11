@@ -22,7 +22,7 @@ namespace Btcamp.Gold.Web.Models
         [RegularExpression(@"^.+@.+\..+$", ErrorMessage = "输入正确的邮箱地址")]
         public string Email { get; set; }
 
-        [Display(Name = "总资产")]
+        [Display(Name = "总资产(USD)")]
         public double Amount { get; set; }
 
 
