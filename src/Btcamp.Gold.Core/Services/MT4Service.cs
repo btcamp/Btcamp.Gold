@@ -72,12 +72,18 @@ namespace Btcamp.Gold.Core.Services
         }
 
 
-        public async Task<decimal> GetAllGold(string loginId)
+        public async Task<Models.TradeGoldModel> GetAllGold(string loginId)
         {
+            Models.TradeGoldModel model = new Models.TradeGoldModel();
             TradeRecordSE[] trades = await Instance.GetOpenTradeByLoginAsync(int.Parse(loginId));
-            double sumGold = trades.Sum(e => e.Volume) / 100;
-            sumGold = Math.Round(sumGold, 2);
-            return (decimal)sumGold;
+            if (trades != null)
+            {
+                double sumGold = trades.Sum(e => e.Volume) / 100;
+                sumGold = Math.Round(sumGold, 2);
+                model.SumGold = (decimal)sumGold;
+                model.SumProfit = (decimal)trades.Sum(e => e.Profit);
+            }
+            return model;
         }
 
 
@@ -85,6 +91,10 @@ namespace Btcamp.Gold.Core.Services
         {
             TradeRecordSE[] trades = await Instance.GetOpenTradeByLoginAsync(int.Parse(loginId));
             List<Models.TradingModel> list = new List<Models.TradingModel>();
+            if (trades == null)
+            {
+                return list;
+            }
             foreach (TradeRecordSE item in trades)
             {
                 decimal price = await GetGoldPrice(item.OpenPrice);
@@ -122,6 +132,10 @@ namespace Btcamp.Gold.Core.Services
         {
             TradeRecordSE[] tradelogs = await Instance.GetTradesRecordHistoryAsync(int.Parse(loginId), DateTime.Now.AddYears(-10), DateTime.Now.AddDays(1));
             List<Models.TradingModel> list = new List<Models.TradingModel>();
+            if (tradelogs == null)
+            {
+                return list;
+            }
             foreach (TradeRecordSE item in tradelogs)
             {
                 if (item.Cmd == 6)

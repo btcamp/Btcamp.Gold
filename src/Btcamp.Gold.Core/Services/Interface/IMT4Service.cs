@@ -12,7 +12,7 @@ namespace Btcamp.Gold.Core.Services.Interface
 
         Task<bool> Buy(string loginId, int volume);
 
-        Task<decimal> GetAllGold(string loginId);
+        Task<Models.TradeGoldModel> GetAllGold(string loginId);
 
         Task<decimal> GetProfit(string loginId);
 

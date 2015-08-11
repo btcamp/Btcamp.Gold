@@ -52,10 +52,10 @@
     </div>
     <div class="row" style="min-height:195px">
         <div class="fontcolor" style="padding-left:30px;min-height:50px;line-height:50px">
-            昨日收益
+            实时收益
         </div>
         <div style="padding-left:30px;font-size:1em;">
-            @ViewBag.Profit
+            <span id="profit"></span>
         </div>
         <div class="fontcolor" style="padding-left:30px;min-height:50px;line-height:50px">
             利率
@@ -72,7 +72,8 @@
             $(function () {
                 setInterval(function () {
                     $.get("@Url.Action("GetGold")", function (result) {
-                        $("#extGold").text(result.Profit);
+                        $("#extGold").text(result.Gold);
+                        $("#profit").text(result.Profit)
                     });
                 }, 1000);
             });

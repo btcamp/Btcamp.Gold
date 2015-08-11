@@ -25,23 +25,26 @@ namespace Btcamp.Gold.Web.Controllers
             _SystemSettingsService = SystemSettingsService;
         }
         // GET: Home
-        public async Task<ActionResult> Index()
+        public Task<ActionResult> Index()
         {
-            if (Request.IsAuthenticated)
+            return Task.Factory.StartNew<ActionResult>(() =>
             {
-                Account account = _accountService.GetById(LoginAccount.Id);
-                ViewBag.Interest = account.Interest.ToString("f2");
-                ViewBag.Profit = await _mt4Service.GetProfit(LoginAccount.MT4Account);
-                SystemSettings model = _SystemSettingsService.GetManyAsNoTracking(e => e.Key == "InterestRate").FirstOrDefault();
-                ViewBag.Info = model == null ? "" : model.Info;
-            }
-            else
-            {
-                ViewBag.Interest = 0.00;
-                ViewBag.Profit = 0.00;
-            }
+                if (Request.IsAuthenticated)
+                {
+                    Account account = _accountService.GetById(LoginAccount.Id);
+                    ViewBag.Interest = account.Interest.ToString("f2");
+                    SystemSettings model = _SystemSettingsService.GetManyAsNoTracking(e => e.Key == "InterestRate").FirstOrDefault();
+                    ViewBag.Info = model == null ? "" : model.Info;
+                }
+                else
+                {
+                    ViewBag.Interest = 0.00;
+                    ViewBag.Profit = 0.00;
+                }
 
-            return View();
+                return View();
+            });
+
         }
 
         public async Task<ActionResult> PriceHub(decimal currentPrice)
@@ -56,8 +59,8 @@ namespace Btcamp.Gold.Web.Controllers
 
         public async Task<ActionResult> GetGold()
         {
-            decimal profit = await _mt4Service.GetAllGold(LoginAccount.MT4Account);
-            var result = new { Profit = profit.ToString("F2") };
+            Core.Models.TradeGoldModel model = await _mt4Service.GetAllGold(LoginAccount.MT4Account);
+            var result = new { Profit = model.SumProfit.ToString("F2"), Gold = model.SumGold.ToString("f2") };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
