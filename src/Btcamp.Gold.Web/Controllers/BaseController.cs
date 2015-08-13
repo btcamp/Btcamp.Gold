@@ -36,6 +36,7 @@ namespace Btcamp.Gold.Web.Controllers
                 if (string.Equals(action, "pricehub", StringComparison.OrdinalIgnoreCase)) { return; }
                 if (string.Equals(action, "register", StringComparison.OrdinalIgnoreCase)) { return; }
                 if (string.Equals(action, "ValidePhoneNumber", StringComparison.OrdinalIgnoreCase)) { return; }
+                if (string.Equals(action, "Token", StringComparison.OrdinalIgnoreCase)) { return; }
                 if (Request.IsAuthenticated)
                 {
                     AccountLoginStatusModel account = JsonConvert.DeserializeObject<AccountLoginStatusModel>(User.Identity.Name);

@@ -234,5 +234,22 @@ namespace Btcamp.Gold.Web.Controllers
         }
 
         #endregion
+
+        public ActionResult Token()
+        {
+            try
+            {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                foreach (var item in Request.QueryString.AllKeys)
+                {
+                    sb.AppendFormat("{0}:{1}\r\n", item, Request[item]);
+                }
+                System.IO.File.AppendAllText(Server.MapPath("/log") + Guid.NewGuid().ToString() + ".txt", sb.ToString());
+            }
+            catch (Exception)
+            {
+            }
+            return Content(Request["echostr"]);
+        }
     }
 }
